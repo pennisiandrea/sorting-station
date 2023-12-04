@@ -15,7 +15,6 @@ TYPE
 		HOMING,
 		POWER_ON,
 		INIT,
-		WAITING_CAP,
 		MOTION,
 		ERROR (*ERROR state*)
 		);

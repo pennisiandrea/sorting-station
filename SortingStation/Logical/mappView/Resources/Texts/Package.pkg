@@ -8,5 +8,6 @@
     <Object Type="File">Manual.tmx</Object>
     <Object Type="File">Alarms.tmx</Object>
     <Object Type="File">States.tmx</Object>
+    <Object Type="File">Recipes.tmx</Object>
   </Objects>
 </Package>

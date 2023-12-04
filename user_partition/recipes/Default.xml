@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DATA>
+	<Element Name="gColourSorter.Parameters" Type="PvParameter">
+		<Group ID="gColourSorter.Parameters">
+			<Property ID="GreyLane" DataType="USINT" Value="3" />
+			<Property ID="RedLane" DataType="USINT" Value="1" />
+			<Property ID="BlackLane" DataType="USINT" Value="2" />
+		</Group>
+	</Element>
+</DATA>

@@ -37,5 +37,13 @@
         <seg>Lost comunication with picking station</seg>
       </tuv>
     </tu>
+    <tu tuid="MainMachinePickingStationNotInLinkMode">
+      <tuv xml:lang="it">
+        <seg>Stazione di presa non in modalita collegamento</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Picking station not in link mode</seg>
+      </tuv>
+    </tu>
   </body>
 </tmx>

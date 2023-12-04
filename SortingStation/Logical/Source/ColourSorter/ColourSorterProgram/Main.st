@@ -179,7 +179,7 @@ PROGRAM _CYCLIC
 				gColourSorter.Feedbacks.CapSorted := TRUE;
 				MachineState.NextState := STOPPER_FORWARD;
 			END_IF
-					
+			
 		ERROR:
 			MachineState.TimeoutTimer.PT := T#0S; // Timeout disabled in this state
 			ResetOutputsAction;

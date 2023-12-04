@@ -253,6 +253,18 @@ ACTION MotionAction:
 			<empty/>
 		</row>
 	</network>
+	<network label="" comment="" row="2" column="0" commented="0">
+		<row>
+			<line/>
+			<function position="top" type="REAL_TO_LREAL"><input name="EN" ENO="true"/><output name="ENO" ENO="true"/></function>
+			<empty/>
+		</row>
+		<row>
+			<analog type="input" name="gPuncher.Parameters.Offset"/>
+			<function position="bottom" type="REAL_TO_LREAL"><input name="IN"/><output name="14"/></function>
+			<analog type="output" name="Internal.Offset.OffsetShift"/>
+		</row>
+	</network>
 	<network label="" comment="" row="9" column="0" commented="0">
 		<row>
 			<empty/>
@@ -280,7 +292,7 @@ ACTION MotionAction:
 		</row>
 		<row>
 			<empty/>
-			<analog type="input" name="gPuncher.Parameters.Offset"/>
+			<empty/>
 			<functionblock position="middle" type="MC_BR_Offset"><input name="OffsetShift"/><output name="Error"/></functionblock>
 			<empty/>
 		</row>
@@ -311,6 +323,7 @@ ACTION MotionAction:
 	</network>
 </networks>
 END_ACTION
+
 
 
 

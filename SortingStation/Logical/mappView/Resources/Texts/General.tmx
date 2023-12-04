@@ -45,5 +45,13 @@
         <seg>Login</seg>
       </tuv>
     </tu>
+    <tu tuid="Reset">
+      <tuv xml:lang="it">
+        <seg>Reset</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Reset</seg>
+      </tuv>
+    </tu>
   </body>
 </tmx>

@@ -3,14 +3,21 @@ ACTION FeedbacksUpdateAction:
     gConveyor.Feedbacks.Enabled := TRUE;
     gConveyor.Feedbacks.WaitingStart := MachineState.ActualState = WAITING_START; 
     gConveyor.Feedbacks.Error := MachineState.ActualState = ERROR;
-	gConveyor.Feedbacks.WaitingCap := MachineState.ActualState = WAITING_CAP;
+	gConveyor.Feedbacks.WaitingCap := MachineState.ActualState = MOTION AND NOT gConveyor.Feedbacks.NewCapTrigger;
 	gConveyor.Feedbacks.AxisHomed := Internal.Axis.IsHomed;	
 	gConveyor.Feedbacks.AxisPowered := Internal.Axis.PowerOn;	
 	gConveyor.Feedbacks.InitPosition := ABS(Internal.Axis.Position - Internal.Parameters.Position)<0.1;
 	gConveyor.Feedbacks.InitDone := gConveyor.Feedbacks.InitPosition AND gConveyor.Commands.Automatic.Init;
 	gConveyor.Feedbacks.AxisSpeed := Internal.Axis.Velocity;
 	gConveyor.Feedbacks.AxisPosition := Internal.Axis.Position;
-	gConveyor.Feedbacks.NewCapTrigger := MachineState.ActualState = MOTION;
+	
+	IF MachineState.ActualState = MOTION AND gConveyor.Commands.Automatic.SendTrigger THEN
+		IF gConveyor.Interface.Inputs.CapInStartPosition THEN
+			gConveyor.Feedbacks.NewCapTrigger := TRUE;
+		END_IF
+	ELSE
+		gConveyor.Feedbacks.NewCapTrigger := FALSE;
+	END_IF
 	
 END_ACTION
 

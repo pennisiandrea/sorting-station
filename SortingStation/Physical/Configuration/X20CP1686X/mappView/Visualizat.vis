@@ -11,6 +11,7 @@
     <BindingsSet refId="automatic_content_binding" />
     <BindingsSet refId="header_content_binding" />
     <BindingsSet refId="manuals_content_binding" />
+    <BindingsSet refId="service_content_binding" />
   </BindingsSets>
   <EventBindingsSets>
     <EventBindingsSet refId="init_content_eventbinding" />

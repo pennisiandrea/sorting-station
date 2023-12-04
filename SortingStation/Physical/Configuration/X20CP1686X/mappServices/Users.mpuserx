@@ -18,12 +18,12 @@
         <Property ID="id" Value="admin" />
         <Property ID="name" Value="Andrea Pennisi" />
         <Property ID="lang" Value="it" />
-        <Property ID="unit" Value="metric" />
+        <Property ID="unit" Value="imperial" />
       </Group>
       <Group ID="DefUser#2">
         <Property ID="id" Value="Anonymous" />
         <Property ID="lang" Value="en" />
-        <Property ID="unit" Value="imperial" />
+        <Property ID="unit" Value="metric" />
       </Group>
     </Group>
     <Group ID="Groups">

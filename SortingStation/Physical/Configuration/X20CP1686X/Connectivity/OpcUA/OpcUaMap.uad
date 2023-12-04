@@ -50,6 +50,12 @@
           <High ValueProvider="Const">5000</High>
         </EURange>
       </EURanges>
+      <EURanges Id="11">
+        <EURange>
+          <Low ValueProvider="Const">1</Low>
+          <High ValueProvider="Const">3</High>
+        </EURange>
+      </EURanges>
     </EURangesAliases>
     <EngineeringUnitAliases>
       <EngineeringUnit Id="1" UnitId="4403510" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="millimetre per second" Symbol="mm/s" />
@@ -80,8 +86,21 @@
         </Variable>
         <Variable Name="gMainMachine" RecursiveEnable="2" />
         <Variable AclId="2" AclInherit="2" Name="gAlarms" RecursiveEnable="2" />
-        <Variable Name="gRecipes" RecursiveEnable="2" />
-        <Variable Name="gPickingStation" RecursiveEnable="2" />
+        <Variable Name="gRecipes" RecursiveEnable="2">
+          <Variable Name="Recipe">
+            <Variable Name="List">
+              <Variable AclId="2" AclInherit="2" Name="SelectedIndex" />
+            </Variable>
+          </Variable>
+        </Variable>
+        <Variable AclId="2" AclInherit="2" Name="gPickingStation" RecursiveEnable="2" />
+        <Variable Name="gColourSorter" RecursiveEnable="2">
+          <Variable Name="Parameters">
+            <Variable Name="GreyLane" EURangesId="11" />
+            <Variable Name="RedLane" EURangesId="11" />
+            <Variable Name="BlackLane" EURangesId="11" />
+          </Variable>
+        </Variable>
       </GlobalVariables>
       <Task AclId="2" AclInherit="2" Name="RSModelSor">
         <Variable Name="aiPuncherAxisActPos" />

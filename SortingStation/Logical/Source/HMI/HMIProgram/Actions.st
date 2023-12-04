@@ -1,3 +1,15 @@
+ACTION SetInitialValuesAction:
+	
+	gHMI.AutomaticPage.PuncherOffset := gPuncher.Parameters.Offset;
+	gHMI.AutomaticPage.ConveyorSpeed := gConveyor.Parameters.TargetSpeed;
+	gHMI.AutomaticPage.PuncherIncludedCheckbox := gMainMachine.Parameters.PuncherEnable;
+	gHMI.ManualPage.ConveyorAcceleration := gConveyor.Parameters.Acceleration;
+	gHMI.ManualPage.ConveyorSpeed := gConveyor.Commands.Manual.Speed;
+	gHMI.ManualPage.PuncherPosition := gPuncher.Commands.Manual.Position;
+	gHMI.ManualPage.PuncherSpeed := gPuncher.Commands.Manual.Speed;
+	
+END_ACTION
+	
 ACTION AutomaticPageAction: 
 			
 	// Link button
@@ -26,20 +38,20 @@ ACTION AutomaticPageAction:
 		gHMI.AutomaticPage.RecipesEnable := FALSE; 
 	END_IF
 	
-	// Auto button
+	// Auto button	
 	IF gMainMachine.Feedbacks.WaitModeSelection OR NOT gMainMachine.Feedbacks.Started THEN
 	
 		gHMI.AutomaticPage.AutoButtonEnable := TRUE;
 		gMainMachine.Commands.Automatic.Enable := gHMI.AutomaticPage.AutoButton;
 	ELSE
 		gHMI.AutomaticPage.AutoButtonEnable := FALSE;
-	END_IF
+	END_IF	
 	IF EDGEPOS(gMainMachine.Commands.Automatic.Enable) THEN
 		gHMI.ManualPage.ManualButton := FALSE;
 	END_IF
 	
 	// Init button
-	IF gMainMachine.Feedbacks.WaitingInit THEN
+	IF gMainMachine.Feedbacks.WaitingInit OR (gMainMachine.Feedbacks.Error AND gMainMachine.Feedbacks.AutomaticMode) THEN
 	
 		gHMI.AutomaticPage.InitButtonEnable := TRUE;
 	ELSE
@@ -47,7 +59,6 @@ ACTION AutomaticPageAction:
 		gHMI.AutomaticPage.InitButton := FALSE;
 	END_IF
 	gMainMachine.Commands.Automatic.Init := gHMI.AutomaticPage.InitButton;
-
 		
 	// Start button
 	IF gMainMachine.Feedbacks.WaitingStart THEN
@@ -63,14 +74,11 @@ ACTION AutomaticPageAction:
 		gHMI.AutomaticPage.StartButtonEnable := FALSE;
 		gHMI.AutomaticPage.StopButtonVisibility := FALSE;
 		gHMI.AutomaticPage.StartButton := FALSE;
-	END_IF	
+	END_IF
 	gMainMachine.Commands.Automatic.Start := gHMI.AutomaticPage.StartButton;
 
 	
 	// Conveyor speed slider button
-	IF gHMI.AutomaticPage.ConveyorSpeed = 0 THEN
-		gHMI.AutomaticPage.ConveyorSpeed := gConveyor.Parameters.TargetSpeed;
-	END_IF
 	IF NOT gMainMachine.Feedbacks.Started THEN
 		gHMI.AutomaticPage.ConveyorSpeedEnable := TRUE;
 		gConveyor.Parameters.TargetSpeed := gHMI.AutomaticPage.ConveyorSpeed;
@@ -110,12 +118,22 @@ ACTION AutomaticPageAction:
 	gMainMachine.Parameters.PuncherEnable := gHMI.AutomaticPage.PuncherIncludedCheckbox;
 	
 	// Stamper offset slider button
-	gHMI.AutomaticPage.StamperOffsetEnable := gMainMachine.Feedbacks.LinkOk;
-	gPickingStation.Inputs.StampOffset := gHMI.AutomaticPage.StamperOffset;
+	IF gMainMachine.Feedbacks.LinkOk AND gMainMachine.Commands.LinkMode THEN
+		gHMI.AutomaticPage.StamperOffsetEnable := TRUE;
+		gPickingStation.Inputs.StampOffset := gHMI.AutomaticPage.StamperOffset;
+	ELSE
+		gHMI.AutomaticPage.StamperOffsetEnable := FALSE;
+		gHMI.AutomaticPage.StamperOffset := gPickingStation.Outputs.ActStampOffset;
+	END_IF
 		
 	// Stamper inclusion
-	gHMI.AutomaticPage.StamperIncludedCheckboxEnable := gMainMachine.Feedbacks.LinkOk;
-	gPickingStation.Inputs.StampIncluded := gHMI.AutomaticPage.StamperIncludedCheckbox;
+	IF gMainMachine.Feedbacks.LinkOk AND gMainMachine.Commands.LinkMode THEN
+		gHMI.AutomaticPage.StamperIncludedCheckboxEnable := TRUE;
+		gPickingStation.Inputs.StampIncluded := gHMI.AutomaticPage.StamperIncludedCheckbox;
+	ELSE
+		gHMI.AutomaticPage.StamperIncludedCheckboxEnable := FALSE;
+		gHMI.AutomaticPage.StamperIncludedCheckbox := gPickingStation.Outputs.ActStampIncluded;
+	END_IF
 	
 END_ACTION
 
@@ -137,6 +155,13 @@ ACTION HeaderContentAction:
 	gHMI.HeaderContent.StateWaitingInit := gMainMachine.Feedbacks.WaitingInit;
 	gHMI.HeaderContent.StateWaitingCap := gMainMachine.Feedbacks.WaitingCap;
 	
+	IF gMainMachine.Feedbacks.Error THEN
+		IF gHMI.HeaderContent.ResetAlarms THEN
+			gMainMachine.Commands.Reset := TRUE;
+		END_IF 
+	ELSE
+		gHMI.HeaderContent.ResetAlarms := FALSE;
+	END_IF
 END_ACTION
 
 ACTION ManualPageAction: 
@@ -330,5 +355,11 @@ ACTION ManualPageAction:
 	
 	gHMI.ManualPage.PuncherActPosition := gPuncher.Feedbacks.AxisPosition;
 	gHMI.ManualPage.PuncherActSpeed := gPuncher.Feedbacks.AxisSpeed;
+	
+END_ACTION
+
+ACTION RecipeContentAction: 
+	
+	gHMI.RecipeContent.EnableRecipesManagement := gHMI.AutomaticPage.RecipesEnable;
 	
 END_ACTION

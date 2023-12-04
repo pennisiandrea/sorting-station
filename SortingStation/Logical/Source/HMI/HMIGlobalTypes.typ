@@ -4,6 +4,7 @@ TYPE
 		AutomaticPage : HMIAutomaticPageType;
 		ManualPage : HMIManualPageType;
 		HeaderContent : HMIHeaderContentType;
+		RecipeContent : HMIRecipeContentType;
 	END_STRUCT;
 	HMIAutomaticPageType : 	STRUCT  (*HMI Interface Output type*)
 		StartButtonEnable : BOOL;
@@ -24,12 +25,12 @@ TYPE
 		ClearStats : BOOL;
 		PuncherIncludedCheckbox : BOOL;
 		PuncherIncludedCheckboxEnable : BOOL;
-		PuncherOffset : LREAL;
+		PuncherOffset : REAL;
 		PuncherOffsetEnable : BOOL;
 		CapsCounter : UDINT;
 		StamperIncludedCheckbox : BOOL;
 		StamperIncludedCheckboxEnable : BOOL;
-		StamperOffset : LREAL;
+		StamperOffset : REAL;
 		StamperOffsetEnable : BOOL;
 		RecipesEnable : BOOL;
 	END_STRUCT;
@@ -92,5 +93,9 @@ TYPE
 		StateError : BOOL;
 		StateWaitModeSelection : BOOL;
 		StateSortingCap : BOOL;
+		ResetAlarms : BOOL;
+	END_STRUCT;
+	HMIRecipeContentType : 	STRUCT  (*HMI Interface Output type*)
+		EnableRecipesManagement : BOOL;
 	END_STRUCT;
 END_TYPE

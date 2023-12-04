@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="service_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gRecipes.Recipe.List.SelectedIndex" attribute="value" />
+<Target xsi:type="brease" contentRefId="service_content" widgetRefId="Table1" attribute="selectedRow" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gRecipes.Recipe.List.Names" attribute="value" />
+<Target xsi:type="brease" contentRefId="service_content" widgetRefId="TableItem1" attribute="stringValue" />
+</Binding>
+
+
+
+
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gColourSorter.Parameters.GreyLane" attribute="node" />
+<Target xsi:type="brease" contentRefId="service_content" widgetRefId="NumericInput3" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gColourSorter.Parameters.BlackLane" attribute="node" />
+<Target xsi:type="brease" contentRefId="service_content" widgetRefId="NumericInput2" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gColourSorter.Parameters.RedLane" attribute="node" />
+<Target xsi:type="brease" contentRefId="service_content" widgetRefId="NumericInput1" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gRecipes.Recipe.Save" attribute="value" />
+<Target xsi:type="brease" contentRefId="service_content" widgetRefId="ToggleButton6" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gRecipes.Recipe.Delete" attribute="value" />
+<Target xsi:type="brease" contentRefId="service_content" widgetRefId="ToggleButton8" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gRecipes.New.FileName" attribute="value" />
+<Target xsi:type="brease" contentRefId="service_content" widgetRefId="TextInput1" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gRecipes.New.Create" attribute="value" />
+<Target xsi:type="brease" contentRefId="service_content" widgetRefId="ToggleButton7" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.RecipeContent.EnableRecipesManagement" attribute="value" />
+<Target xsi:type="brease" contentRefId="service_content" widgetRefId="ToggleButton7" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.RecipeContent.EnableRecipesManagement" attribute="value" />
+<Target xsi:type="brease" contentRefId="service_content" widgetRefId="ToggleButton8" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.RecipeContent.EnableRecipesManagement" attribute="value" />
+<Target xsi:type="brease" contentRefId="service_content" widgetRefId="ToggleButton6" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.RecipeContent.EnableRecipesManagement" attribute="value" />
+<Target xsi:type="brease" contentRefId="service_content" widgetRefId="NumericInput3" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.RecipeContent.EnableRecipesManagement" attribute="value" />
+<Target xsi:type="brease" contentRefId="service_content" widgetRefId="NumericInput2" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.RecipeContent.EnableRecipesManagement" attribute="value" />
+<Target xsi:type="brease" contentRefId="service_content" widgetRefId="NumericInput1" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.RecipeContent.EnableRecipesManagement" attribute="value" />
+<Target xsi:type="brease" contentRefId="service_content" widgetRefId="Table1" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.RecipeContent.EnableRecipesManagement" attribute="value" />
+<Target xsi:type="brease" contentRefId="service_content" widgetRefId="TextInput1" attribute="enable" />
+</Binding>
+</Bindings>
+</BindingsSet>

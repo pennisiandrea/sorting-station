@@ -13,6 +13,12 @@
             <Property ID="Name" Value="STOP" />
           </Selector>
         </Group>
+        <Group ID="[1]">
+          <Property ID="Severity" Value="2" />
+          <Selector ID="[0]" Value="Reaction">
+            <Property ID="Name" Value="STOP_ON_PHASE" />
+          </Selector>
+        </Group>
       </Group>
     </Group>
     <Group ID="mapp.AlarmX.Core.Configuration">
@@ -94,6 +100,7 @@
       <Group ID="[17]">
         <Property ID="Name" Value="MainMachineCommunicationLost" />
         <Property ID="Message" Value="{$Source/MainMachine/Alarms/MainMachineCommunicationLost}" />
+        <Property ID="Severity" Value="2" />
         <Selector ID="Behavior" Value="PersistentAlarm" />
       </Group>
       <Group ID="[18]">
@@ -103,6 +110,11 @@
       <Group ID="[19]">
         <Property ID="Name" Value="MainMachinePickingStationInError" />
         <Property ID="Message" Value="{$Source/MainMachine/Alarms/MainMachinePickingStationInError}" />
+        <Property ID="Severity" Value="2" />
+      </Group>
+      <Group ID="[20]">
+        <Property ID="Name" Value="MainMachinePickingStationNotInLinkMode" />
+        <Property ID="Message" Value="{$Source/MainMachine/Alarms/MainMachinePickingStationNotInLinkMode}" />
         <Selector ID="Behavior" Value="PersistentAlarm" />
       </Group>
     </Group>

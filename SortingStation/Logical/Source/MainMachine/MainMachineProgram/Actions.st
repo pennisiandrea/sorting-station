@@ -25,11 +25,10 @@ ACTION FeedbacksUpdateAction:
 	gMainMachine.Feedbacks.ManualMode := (MachineState.ActualState = MANUAL);
 	
 	gMainMachine.Feedbacks.AutomaticMode := NOT gMainMachine.Feedbacks.ManualMode AND NOT gMainMachine.Feedbacks.WaitModeSelection AND NOT gMainMachine.Feedbacks.Error;
-		
-	gPickingStation.Inputs.AutomaticMode := gMainMachine.Feedbacks.AutomaticMode;
 	
 	// Started
 	IF (MachineState.ActualState = AUTO_WAITING_MODULES_READY)
+		OR (MachineState.ActualState = AUTO_WAITING_CAP)
 		OR (MachineState.ActualState = AUTO_DELIVERING_AND_PUNCHING_CAP)
 		OR (MachineState.ActualState = AUTO_SORTING_CAP) THEN
 	
@@ -81,11 +80,21 @@ ACTION SetAlarmsAction:
 		MpAlarmXReset(gAlarmXCoreMpLink,'MainMachineCommunicationLost');
 	END_IF
 	
-	IF gPickingStation.Inputs.Error AND gMainMachine.Commands.LinkMode THEN
+	IF gPickingStation.Outputs.Error AND gMainMachine.Commands.LinkMode AND gAlarms.Feedbacks.Pendings = 0 THEN
 		MpAlarmXSet(gAlarmXCoreMpLink,'MainMachinePickingStationInError');
-	ELSE
-		MpAlarmXReset(gAlarmXCoreMpLink,'MainMachinePickingStationInError');
 	END_IF
+	
+	IF gMainMachine.Commands.LinkMode 
+		AND NOT gPickingStation.Outputs.LinkActive 
+		AND MachineState.ActualState <> MANUAL 
+		AND MachineState.ActualState <> ERROR
+		AND MachineState.ActualState <> WAITING_MODE_SELECTION
+		AND MachineState.ActualState <> AUTO_WAITING_INIT THEN
+		MpAlarmXSet(gAlarmXCoreMpLink,'MainMachinePickingStationNotInLinkMode');
+	ELSE
+		MpAlarmXReset(gAlarmXCoreMpLink,'MainMachinePickingStationNotInLinkMode');
+	END_IF
+	
 END_ACTION
 
 ACTION PickingStationCommunication: 
@@ -97,25 +106,20 @@ ACTION PickingStationCommunication:
 	END_IF
       
 	// Check communication heart beat from the slave
-	IF gMainMachine.Commands.LinkMode THEN
-		IF EDGE(gPickingStation.Outputs.HeartBeat) THEN
-			Internal.CommunicationTimeoutTimer.IN := FALSE;
-			CommunicationInitialized := TRUE;
-		ELSE
-			Internal.CommunicationTimeoutTimer.IN := TRUE;			
-			IF Internal.CommunicationTimeoutTimer.Q THEN
-				CommunicationInitialized := TRUE;
-			END_IF
-			
-		END_IF		
-	ELSE
+	IF EDGE(gPickingStation.Outputs.HeartBeat) THEN
 		Internal.CommunicationTimeoutTimer.IN := FALSE;
-		CommunicationInitialized := FALSE;
+		CommunicationInitialized := TRUE;
+	ELSE
+		Internal.CommunicationTimeoutTimer.IN := TRUE;			
+		IF Internal.CommunicationTimeoutTimer.Q THEN
+			CommunicationInitialized := TRUE;
+		END_IF
+		
 	END_IF
 	
 	Internal.CommunicationTimeoutTimer();
 	
-	Internal.PickingStationCommunicationOk := NOT Internal.CommunicationTimeoutTimer.Q AND CommunicationInitialized AND gMainMachine.Commands.LinkMode;
+	Internal.PickingStationCommunicationOk := NOT Internal.CommunicationTimeoutTimer.Q AND CommunicationInitialized;
 	gMainMachine.Feedbacks.LinkOk := Internal.PickingStationCommunicationOk;
 	
 END_ACTION
@@ -132,15 +136,18 @@ END_ACTION
 
 ACTION StopModules:
 		
+	gColourSorter.Commands.Manual.Enable := FALSE;
 	gColourSorter.Commands.Automatic.Start := FALSE;
 	gColourSorter.Commands.Automatic.Init := FALSE;
 	gColourSorter.Commands.Reset := FALSE;
 	
+	gConveyor.Commands.Manual.Enable := FALSE;
 	gConveyor.Commands.Automatic.Start := FALSE;
 	gConveyor.Commands.Automatic.Init := FALSE;
 	gConveyor.Commands.Reset := FALSE;
-	gConveyor.Commands.Automatic.DeliverCap := FALSE;
+	gConveyor.Commands.Automatic.SendTrigger := FALSE;
 	
+	gPuncher.Commands.Manual.Enable := FALSE;
 	gPuncher.Commands.Automatic.Start := FALSE;
 	gPuncher.Commands.Automatic.Init := FALSE;
 	gPuncher.Commands.Reset := FALSE;
@@ -218,4 +225,17 @@ ACTION StatisticsAction:
 	gMainMachine.Statistics.CurrentCapWorkingTime := CapWorkStopwatch.ET; 
 	gMainMachine.Statistics.LastCapWorkingTime := CapsWorkingTimeHistory[0];
 	gMainMachine.Statistics.AverageCapWorkingTime := UDINT_TO_TIME(TIME_TO_UDINT(TotHistoryWorkedTime)/MAX(1,Index));
+END_ACTION
+
+ACTION PickingStationAction: 
+		
+	gPickingStation.Inputs.AutomaticMode := gMainMachine.Feedbacks.AutomaticMode;
+	
+	gPickingStation.Inputs.Error := gMainMachine.Feedbacks.Error;
+	
+	IF NOT gMainMachine.Commands.Automatic.Start THEN				
+		IF gMainMachine.Commands.LinkMode AND gPickingStation.Outputs.Started THEN
+			gPickingStation.Inputs.Start := FALSE;
+		END_IF
+	END_IF
 END_ACTION

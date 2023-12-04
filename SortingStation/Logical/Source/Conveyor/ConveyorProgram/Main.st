@@ -99,7 +99,7 @@ PROGRAM _CYCLIC
 				IF gConveyor.Commands.Automatic.Init THEN
 					MachineState.NextState := INIT;
 				ELSE
-					MachineState.NextState := WAITING_CAP;
+					MachineState.NextState := MOTION;
 				END_IF
 			END_IF
 			
@@ -118,20 +118,15 @@ PROGRAM _CYCLIC
         WAITING_START:
 			MachineState.TimeoutTimer.PT := T#0S; // Timeout disabled in this state
 			IF MachineState.NewTriggerState THEN
-				Internal.Axis.Power := FALSE;
+				ResetMotionCommands;
 			END_IF
+			
             IF gConveyor.Commands.Automatic.Start THEN
 				MachineState.NextState := POWER_ON;				
 				
 			ELSIF gConveyor.Commands.Manual.Enable THEN
 				MachineState.NextState := MANUALS;	
             END_IF   		
-		
-		WAITING_CAP:
-			MachineState.TimeoutTimer.PT := T#0S; // Timeout disabled in this state
-			IF gConveyor.Interface.Inputs.CapInStartPosition AND gConveyor.Commands.Automatic.DeliverCap THEN
-				MachineState.NextState := MOTION;
-			END_IF 	
 		
 		MOTION:
 			MachineState.TimeoutTimer.PT := T#0S; // Timeout disabled in this state
@@ -140,10 +135,6 @@ PROGRAM _CYCLIC
 				Internal.Parameters.Direction := mcDIR_POSITIVE;
 			END_IF
 			Internal.Axis.MoveVelocity := TRUE;			
-			IF NOT gConveyor.Commands.Automatic.DeliverCap THEN
-				Internal.Axis.MoveVelocity := FALSE;
-				MachineState.NextState := WAITING_CAP;
-			END_IF 			
 			
         ERROR:
             MachineState.TimeoutTimer.PT := T#0S; // Timeout disabled in this state

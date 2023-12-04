@@ -1,5 +1,5 @@
 PROGRAM _INIT
-	
+	SetInitialValuesAction;
 END_PROGRAM
 
 PROGRAM _CYCLIC
@@ -9,6 +9,8 @@ PROGRAM _CYCLIC
 	AutomaticPageAction;
 	
 	ManualPageAction;
+	
+	RecipeContentAction;
 	
 END_PROGRAM
 

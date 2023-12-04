@@ -12,5 +12,6 @@
     <Object Type="File">manuals_content.binding</Object>
     <Object Type="File">header_content.eventbinding</Object>
     <Object Type="File">login_content.eventbinding</Object>
+    <Object Type="File">service_content.binding</Object>
   </Objects>
 </Package>

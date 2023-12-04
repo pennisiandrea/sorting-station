@@ -86,7 +86,8 @@ PROGRAM _CYCLIC
 			IF NOT gMainMachine.Commands.Automatic.Enable THEN
 				MachineState.NextState := WAITING_MODE_SELECTION;
 				
-			ELSIF gMainMachine.Commands.Automatic.Start THEN				
+			ELSIF gMainMachine.Commands.Automatic.Start THEN
+				StartModules;
 				MachineState.NextState := AUTO_WAITING_MODULES_READY;
 				
 			END_IF 
@@ -94,13 +95,12 @@ PROGRAM _CYCLIC
 		AUTO_WAITING_MODULES_READY:
 			MachineState.TimeoutTimer.PT := T#0S; // Timeout disabled in this state
 			IF MachineState.NewTriggerState THEN	
-				StartModules;
 				gMainMachine.Feedbacks.NewCapOnWork := FALSE;
 			END_IF
 			
-			IF NOT gMainMachine.Commands.Automatic.Start THEN
+			IF NOT gMainMachine.Commands.Automatic.Start AND (NOT gPickingStation.Outputs.Started OR NOT gMainMachine.Commands.LinkMode) THEN
 				MachineState.NextState := WAITING_MODE_SELECTION;
-			
+				
 			ELSIF gColourSorter.Feedbacks.WaitingCap 
 				AND gConveyor.Feedbacks.WaitingCap
 				AND (gPuncher.Feedbacks.WaitingCap OR NOT gPuncher.Commands.Automatic.Start) 
@@ -110,15 +110,17 @@ PROGRAM _CYCLIC
 			END_IF
 			
 		AUTO_WAITING_CAP:
-			MachineState.TimeoutTimer.PT := T#0S; // Timeout disabled in this state
-			IF MachineState.NewTriggerState THEN
-				gConveyor.Commands.Automatic.DeliverCap := TRUE;
-			END_IF
+			MachineState.TimeoutTimer.PT := T#0S; // Timeout disabled in this state	
+			gConveyor.Commands.Automatic.SendTrigger := TRUE;
 			
-			IF gConveyor.Feedbacks.NewCapTrigger THEN
+			IF MpAlarmXCheckReaction(gAlarmXCoreMpLink,'STOP_ON_PHASE') THEN
+				MachineState.NextState := ERROR;
+				
+			ELSIF gConveyor.Feedbacks.NewCapTrigger THEN
+				gConveyor.Commands.Automatic.SendTrigger := FALSE;
 				gMainMachine.Feedbacks.NewCapOnWork := TRUE;
 				gPuncher.Commands.Automatic.PunchCap := TRUE;
-				MachineState.NextState := AUTO_DELIVERING_AND_PUNCHING_CAP;
+				MachineState.NextState := AUTO_DELIVERING_AND_PUNCHING_CAP;						
 			END_IF			
 			
 		AUTO_DELIVERING_AND_PUNCHING_CAP:	
@@ -141,10 +143,16 @@ PROGRAM _CYCLIC
 			MachineState.TimeoutTimer.PT := T#0S; // Timeout disabled in this state
 						
 			IF EDGEPOS(gColourSorter.Feedbacks.CapSorted) THEN
-				gConveyor.Commands.Automatic.DeliverCap := FALSE;
 				MachineState.NextState := AUTO_WAITING_MODULES_READY;
 			END_IF
-								
+		
+		AUTO_WAITING_PICKUP_STATION_STOP:
+			MachineState.TimeoutTimer.PT := T#0S; // Timeout disabled in this state
+			gPickingStation.Inputs.Start := FALSE;
+			IF NOT gPickingStation.Outputs.Started OR NOT gMainMachine.Commands.LinkMode THEN
+				MachineState.NextState := AUTO_WAITING_START;
+			END_IF
+			
 		ERROR:
 			MachineState.TimeoutTimer.PT := T#0S; // Timeout disabled in this state
 			IF MachineState.NewTriggerState THEN
@@ -152,15 +160,16 @@ PROGRAM _CYCLIC
 				gMainMachine.Commands.Reset := FALSE;
 			END_IF
 			
+			IF gMainMachine.Commands.Automatic.Init THEN // User can reset alarms with init command	
+				gMainMachine.Commands.Reset := TRUE;
+			END_IF
+			
 			IF gMainMachine.Commands.Reset THEN
 				ResetModules;
 			END_IF
 			
-			IF NOT MpAlarmXCheckReaction(gAlarmXCoreMpLink,'ERROR') 
-				AND NOT gConveyor.Feedbacks.Error  
-				AND NOT gColourSorter.Feedbacks.Error  
-				AND NOT gPuncher.Feedbacks.Error 
-				AND NOT gPickingStation.Outputs.Error THEN
+			IF NOT MpAlarmXCheckReaction(gAlarmXCoreMpLink,'STOP') 
+				AND NOT MpAlarmXCheckReaction(gAlarmXCoreMpLink,'STOP_ON_PHASE')  THEN
 				
 				gMainMachine.Commands.Reset := FALSE;
 				MachineState.NextState := WAITING_MODE_SELECTION;
@@ -170,7 +179,9 @@ PROGRAM _CYCLIC
 			MachineState.NextState := WAITING_MODE_SELECTION;			
         
 	END_CASE
-    		
+    
+	PickingStationAction;
+	
 	FeedbacksUpdateAction;
 	
 	StatisticsAction;

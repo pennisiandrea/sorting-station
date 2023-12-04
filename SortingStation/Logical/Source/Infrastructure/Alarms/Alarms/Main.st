@@ -15,12 +15,11 @@ PROGRAM _CYCLIC
 			
 	MpAlarmXHistoryFB();
 	
+	MpAlarmXListUIConnect.AcknowledgeAll := gMainMachine.Commands.Reset;
 	MpAlarmXListUIFB();
 	
 	gAlarms.Feedbacks.Pendings := MpAlarmXCoreFB.PendingAlarms;
-	
-	AcknowledgeManagement;
-		
+			
 END_PROGRAM
 
 PROGRAM _EXIT

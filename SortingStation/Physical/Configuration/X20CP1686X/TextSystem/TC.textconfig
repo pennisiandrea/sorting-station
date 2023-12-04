@@ -21,6 +21,7 @@
       <Property ID="TargetFile[8]" Value="mappView.Resources.Texts.Manual.tmx" />
       <Property ID="TargetFile[9]" Value="mappView.Resources.Texts.Alarms.tmx" />
       <Property ID="TargetFile[10]" Value="mappView.Resources.Texts.States.tmx" />
+      <Property ID="TargetFile[11]" Value="mappView.Resources.Texts.Recipes.tmx" />
     </Group>
   </Element>
 </Configuration>

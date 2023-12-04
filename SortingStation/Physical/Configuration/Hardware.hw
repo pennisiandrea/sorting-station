@@ -150,7 +150,7 @@
       <Parameter ID="SubnetMask" Value="255.255.255.0" />
       <Parameter ID="ActivateSnmp" Value="2" />
     </Connector>
-    <Parameter ID="ConfigurationID" Value="PickupStation_Configuration" />
+    <Parameter ID="ConfigurationID" Value="SortingStation_Configuration" />
     <Parameter ID="TimerDeviceType" Value="EPLX2X" />
     <Parameter ID="TimerDevice" Value="X20CP1686X.IF3" />
     <Parameter ID="Cyclic1Tolerance" Value="0" />
@@ -159,6 +159,12 @@
     <Group ID="FileDevice1" />
     <Parameter ID="FileDeviceName1" Value="RECIPES" />
     <Parameter ID="FileDevicePath1" Value="USER_PATH\recipes" />
+    <Group ID="FtpUser1" />
+    <Parameter ID="FtpUsername1" Value="admin" />
+    <Parameter ID="FtpUserPassword1" Value="hWQDzdDXjPZQ9N0GtnGX4GsrlK/JakopLOxsvgAIz6U=" />
+    <Parameter ID="FtpUserSalt1" Value="DV/Yji4l" />
+    <Parameter ID="FTPAccessRight1" Value="0" />
+    <Parameter ID="FTPdevice1" Value="ALL" />
     <Parameter ID="ActivateOpcUa" Value="1" />
     <Parameter ID="OpcUaInformationModels_PV_Version" Value="2" />
     <Parameter ID="OpcUaInformationModel_Facet" Value="0" />

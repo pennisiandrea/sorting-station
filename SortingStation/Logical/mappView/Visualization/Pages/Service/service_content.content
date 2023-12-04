@@ -1,8 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Content id="service_content" height="680" width="1280" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Content id="service_content" height="680" width="1280" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
   <Widgets>
     <Widget xsi:type="widgets.brease.WebViewer" id="WebViewer1" top="14" left="429" width="838" height="657" zIndex="0" />
     <Widget xsi:type="widgets.brease.LanguageSelector" id="LanguageSelector1" top="10" left="15" width="195" zIndex="1" cornerRadius="10px" backColor="rgba(100, 100, 100, 1)" textColor="rgba(255, 255, 255, 1)" activeBackColor="rgba(100, 100, 100, 1)" fontSize="20px" />
     <Widget xsi:type="widgets.brease.MeasurementSystemSelector" id="MeasurementSystemSelector1" top="50" left="15" width="195" zIndex="2" cornerRadius="10px" backColor="rgba(100, 100, 100, 1)" textColor="rgba(255, 255, 255, 1)" activeBackColor="rgba(100, 100, 100, 1)" fontSize="20px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label11" top="124" left="14" width="336" zIndex="4" text="$IAT/Recipes/Recipes" borderWidth="0px 0px 1px 0px" borderColor="rgba(0, 0, 0, 1)" borderStyle="solid" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontSize="20px" />
+    <Widget xsi:type="widgets.brease.Rectangle" id="Rectangle2" top="124" left="14" width="338" height="452" zIndex="3" cornerRadius="10px" lineColor="rgba(0, 0, 0, 1)" backColor="rgba(255, 255, 255, 1)" />
+    <Widget xsi:type="widgets.brease.Table" id="Table1" top="165" left="25" width="315" height="170" zIndex="5" showHeader="false" cornerRadius="10px">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.TableItem" id="TableItem1" zIndex="0" columnWidth="310" />
+      </Widgets>
+    </Widget>
+    <Widget xsi:type="widgets.brease.NumericInput" id="NumericInput1" top="355" left="220" width="115" zIndex="6" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" showUnit="false" cornerRadius="10px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label22" top="355" left="25" width="190" zIndex="7" text="$IAT/Recipes/RedLane" textAlign="left" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="NumericInput2" top="390" left="220" width="115" zIndex="8" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" showUnit="false" cornerRadius="10px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label23" top="390" left="25" width="190" zIndex="9" text="$IAT/Recipes/BlackLane" textAlign="left" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="NumericInput3" top="425" left="220" width="115" zIndex="10" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" showUnit="false" cornerRadius="10px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label24" top="425" left="25" width="190" zIndex="11" text="$IAT/Recipes/GrayLane" textAlign="left" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton6" top="465" left="25" width="160" zIndex="12" text="$IAT/Recipes/SaveRecipe" cornerRadius="10px" style="Command" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton7" top="535" left="25" width="160" zIndex="13" text="$IAT/Recipes/NewRecipe" cornerRadius="10px" style="Command" />
+    <Widget xsi:type="widgets.brease.TextInput" id="TextInput1" top="535" left="220" width="115" zIndex="14" cornerRadius="10px" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton8" top="500" left="25" width="160" zIndex="15" text="$IAT/Recipes/DelRecipe" cornerRadius="10px" style="Command" />
   </Widgets>
 </Content>

@@ -51,8 +51,8 @@ TYPE
 		StopperForward : BOOL;
 	END_STRUCT;
 	ColourSorterParametersType : 	STRUCT  (*ColourSorter Commands type*)
-		GreyLane : USINT := 1;
-		RedLane : USINT := 2;
-		BlackLane : USINT := 3;
+		GreyLane : USINT := 3;
+		RedLane : USINT := 1;
+		BlackLane : USINT := 2;
 	END_STRUCT;
 END_TYPE

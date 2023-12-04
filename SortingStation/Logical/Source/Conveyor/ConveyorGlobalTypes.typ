@@ -42,7 +42,7 @@ TYPE
 	ConveyorAutomaticCommadsType : 	STRUCT  (*Conveyor Commands type*)
 		Start : BOOL;
 		Init : BOOL;
-		DeliverCap : BOOL;
+		SendTrigger : BOOL;
 	END_STRUCT;
 	ConveyorManualCommadsType : 	STRUCT  (*Conveyor Commands type*)
 		Enable : BOOL;

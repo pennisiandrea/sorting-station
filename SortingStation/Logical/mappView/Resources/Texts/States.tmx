@@ -7,32 +7,13 @@
   <body>
     <tu tuid="WaitingInit">
       <tuv xml:lang="it">
-        <seg>Attesa inizializzazione</seg>
+        <seg>Premere il tasto inizializzazione per abilitare la macchina al lavoro</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Waiting initialization</seg>
+        <seg>Press initialize button to enable machine at work</seg>
       </tuv>
       <tuv xml:lang="de">
         <seg>Servus Welt!</seg>
-      </tuv>
-      <tuv xml:lang="fr">
-        <seg>Bonjour tout le monde!</seg>
-      </tuv>
-    </tu>
-    <tu tuid="Manual">
-      <tuv xml:lang="it">
-        <seg>Modalita manuale</seg>
-      </tuv>
-      <tuv xml:lang="en">
-        <seg>Manual mode</seg>
-      </tuv>
-    </tu>
-    <tu tuid="WaitingStart">
-      <tuv xml:lang="it">
-        <seg>Attesa start</seg>
-      </tuv>
-      <tuv xml:lang="en">
-        <seg>Waiting start</seg>
       </tuv>
     </tu>
     <tu tuid="Init">
@@ -59,14 +40,6 @@
         <seg>Punching the cap</seg>
       </tuv>
     </tu>
-    <tu tuid="Error">
-      <tuv xml:lang="it">
-        <seg>Errore</seg>
-      </tuv>
-      <tuv xml:lang="en">
-        <seg>Error</seg>
-      </tuv>
-    </tu>
     <tu tuid="Delivering">
       <tuv xml:lang="it">
         <seg>Consegno il tappo</seg>
@@ -83,12 +56,36 @@
         <seg>Waiting modules ready</seg>
       </tuv>
     </tu>
-    <tu tuid="WaitingMode">
+    <tu tuid="Manual">
       <tuv xml:lang="it">
-        <seg>Attesa scelta modalità</seg>
+        <seg>Modalita manuale attiva</seg>
       </tuv>
       <tuv xml:lang="en">
-        <seg>Waiting working mode selection</seg>
+        <seg>Manual mode active</seg>
+      </tuv>
+    </tu>
+    <tu tuid="WaitingStart">
+      <tuv xml:lang="it">
+        <seg>Premere il tasto start per iniziare a lavorare</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Press start button to start work</seg>
+      </tuv>
+    </tu>
+    <tu tuid="WaitingMode">
+      <tuv xml:lang="it">
+        <seg>Selezionare la modalità di lavoro premendo i tasti Modalita automatica o Modalita manuale</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Select the working mode by pressing Automatic mode or Manual mode buttons.</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Error">
+      <tuv xml:lang="it">
+        <seg>Macchina in errore, premere reset o inizializza.</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Machine in error, please press reset or initialize buttons.</seg>
       </tuv>
     </tu>
   </body>

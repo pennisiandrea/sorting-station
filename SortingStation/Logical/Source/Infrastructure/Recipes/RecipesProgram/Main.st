@@ -4,6 +4,7 @@ PROGRAM _INIT
 	MpRecipeXmlFB(MpLink := ADR(gRecipesXmlMpLink), Enable := TRUE, DeviceName := ADR('RECIPES'));
 	MpRecipeUIFB(MpLink := ADR(gRecipesXmlMpLink), Enable := TRUE, UIConnect := ADR(gRecipes));
 	
+	gRecipes.New.FileName := 'Default.xml';
 END_PROGRAM
 
 PROGRAM _CYCLIC
@@ -18,6 +19,12 @@ PROGRAM _CYCLIC
 			gRecipes.Recipe.Load := TRUE;
 			InitDone := TRUE;
 			LastRecipeIndex := gRecipes.Recipe.List.SelectedIndex;
+		END_IF
+		gRecipes.Recipe.Delete := FALSE;
+		gRecipes.Recipe.Save := FALSE;
+		IF gRecipes.New.Create THEN
+			gRecipes.New.Create := FALSE;
+			gRecipes.New.FileName := 'Default.xml';			
 		END_IF
 	END_IF
 	

@@ -50,5 +50,25 @@
         </Action>
       </EventHandler>
     </EventBinding>
+    <EventBinding id="header_content.AckButton.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="header_content" widgetRefId="AckButton" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="header_content" widgetRefId="AlarmList1">
+            <Method xsi:type="widgets.brease.AlarmList.Action.Acknowledge" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="header_content.AckAllButton.Click">
+      <Source xsi:type="widgets.brease.Button.Event" contentRefId="header_content" widgetRefId="AckAllButton" event="Click" />
+      <EventHandler>
+        <Action>
+          <Target xsi:type="widgets.brease.AlarmList.Action" contentRefId="header_content" widgetRefId="AlarmList1">
+            <Method xsi:type="widgets.brease.AlarmList.Action.AcknowledgeAll" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
   </Bindings>
 </EventBindingSet>

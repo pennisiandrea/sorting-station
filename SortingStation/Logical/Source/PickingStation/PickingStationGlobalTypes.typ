@@ -13,7 +13,7 @@ TYPE
 		Start : BOOL;
 		AutomaticMode : BOOL;
 		StampIncluded : BOOL;
-		StampOffset : LREAL;
+		StampOffset : REAL;
 		ConveyorSpeed : REAL;
 	END_STRUCT;
 	PickingStationOutputsType : 	STRUCT  (*Master Commands type*)
@@ -25,5 +25,9 @@ TYPE
 		InitDone : BOOL;
 		Started : BOOL;
 		ClearStatsDone : BOOL;
+		LinkActive : BOOL;
+		NewCapArriving : BOOL;
+		ActStampIncluded : BOOL;
+		ActStampOffset : REAL;
 	END_STRUCT;
 END_TYPE

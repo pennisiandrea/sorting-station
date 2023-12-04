@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">IAT/Recipes</prop>
+  </header>
+  <body>
+    <tu tuid="LoadRecipe">
+      <tuv xml:lang="it">
+        <seg>Carica ricetta</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Load recipe</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Servus Welt!</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Bonjour tout le monde!</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Recipes">
+      <tuv xml:lang="it">
+        <seg>Ricette</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Recipes</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Cyan">
+      <tuv xml:lang="it">
+        <seg>Ciano</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Cyan</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Magenta">
+      <tuv xml:lang="it">
+        <seg>Magenta</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Magenta</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Yellow">
+      <tuv xml:lang="it">
+        <seg>Giallo</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Yellow</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Black">
+      <tuv xml:lang="it">
+        <seg>Nero</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Black</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ConvSpeed">
+      <tuv xml:lang="it">
+        <seg>Velocita tappeto</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Conveyor speed</seg>
+      </tuv>
+    </tu>
+    <tu tuid="TargetWeight">
+      <tuv xml:lang="it">
+        <seg>Peso target</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Target weight</seg>
+      </tuv>
+    </tu>
+    <tu tuid="SaveRecipe">
+      <tuv xml:lang="it">
+        <seg>Salva ricetta</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Save recipe</seg>
+      </tuv>
+    </tu>
+    <tu tuid="NewRecipe">
+      <tuv xml:lang="it">
+        <seg>Crea nuova ricetta</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Create new recipe</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DelRecipe">
+      <tuv xml:lang="it">
+        <seg>Cancella ricetta</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Delete recipe</seg>
+      </tuv>
+    </tu>
+    <tu tuid="RedLane">
+      <tuv xml:lang="it">
+        <seg>Corsia tappi rossi</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Red cap lane</seg>
+      </tuv>
+    </tu>
+    <tu tuid="BlackLane">
+      <tuv xml:lang="it">
+        <seg>Corsia tappi neri</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Black cap lane</seg>
+      </tuv>
+    </tu>
+    <tu tuid="GrayLane">
+      <tuv xml:lang="it">
+        <seg>Corsia tappi grigi</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Gray cap lane</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

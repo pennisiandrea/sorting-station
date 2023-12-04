@@ -1,7 +1,7 @@
 
 PROGRAM _INIT
 	
-	MpRecipeXmlFB(MpLink := ADR(gRecipesXmlMpLink), Enable := TRUE, DeviceName := ADR('RECIPES_SIM'));
+	MpRecipeXmlFB(MpLink := ADR(gRecipesXmlMpLink), Enable := TRUE, DeviceName := ADR('RECIPES'));
 	MpRecipeUIFB(MpLink := ADR(gRecipesXmlMpLink), Enable := TRUE, UIConnect := ADR(gRecipes));
 	
 END_PROGRAM

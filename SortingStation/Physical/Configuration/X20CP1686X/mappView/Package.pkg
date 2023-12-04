@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package SubType="mappViewControl" PackageType="mappViewControl" xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File">Visualizat.vis</Object>
+    <Object Type="File">Config.mappviewcfg</Object>
+    <Object Type="File">automatic_content.binding</Object>
+    <Object Type="File">OpcUaServer.uaserver</Object>
+    <Object Type="File">header_content.binding</Object>
+    <Object Type="File">init_content.eventbinding</Object>
+    <Object Type="File">automatic_content.eventbinding</Object>
+    <Object Type="File">manuals_content.binding</Object>
+    <Object Type="File">header_content.eventbinding</Object>
+    <Object Type="File">login_content.eventbinding</Object>
+  </Objects>
+</Package>

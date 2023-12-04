@@ -1,0 +1,32 @@
+(*Inputs*)
+VAR
+	diCapOnSortingConveyor : BOOL := 0;
+	diHolePuncherForward : BOOL := 0;
+	diHolePuncherBack : BOOL := 0;
+	diColourDetection : BOOL := 0;
+	diCapColourNotBlack : BOOL := 0;
+	diCapColourMetallic : BOOL := 0;
+	diLaneGate1Forward : BOOL := 0;
+	diLaneGate1Back : BOOL := 0;
+	diLaneGate2Forward : BOOL := 0;
+	diLaneGate2Back : BOOL := 0;
+	diLaneTop : BOOL := 0;
+	aiPuncherAxisActPos : REAL := 0.0; (*[m]*)
+END_VAR
+(*Outputs*)
+VAR
+	doHolePuncher : BOOL := 0;
+	doSortingConveyorClear : BOOL := 0;
+	doCapStopper : BOOL := 0;
+	doLaneGate1 : BOOL := 0;
+	doLaneGate2 : BOOL := 0;
+	aoSortingConveyorSetSpeed : REAL := 0.0; (*[m/s]*)
+	aoPuncherAxisSetPos : REAL := 0.0; (*[m]*)
+END_VAR
+(*Model Interaction*)
+VAR
+	doLaneStopper1Clear : BOOL := 0;
+	doLaneStopper2Clear : BOOL := 0;
+	doLaneStopper3Clear : BOOL := 0;
+	doCreateCapForSorting : BOOL := 0;
+END_VAR

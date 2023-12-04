@@ -1,0 +1,3 @@
+VAR
+	gPuncher : PuncherType;
+END_VAR

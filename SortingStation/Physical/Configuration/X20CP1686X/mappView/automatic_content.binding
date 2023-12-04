@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="automatic_content_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.ConveyorSpeed" attribute="node" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="BasicSlider1" attribute="node" />
+</Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.LinkButton" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="ToggleButton1" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.LinkButtonEnable" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="ToggleButton1" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.AutoButtonEnable" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="ToggleButton2" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.AutoButton" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="ToggleButton2" attribute="value" />
+</Binding>
+
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.InitButtonEnable" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="ToggleButton5" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.InitButton" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="ToggleButton5" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.ConveyorSpeedEnable" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="BasicSlider1" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.StopButtonVisibility" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="ToggleButton4" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.StartButton" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="ToggleButton4" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.StartButton" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="ToggleButton3" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.StartButtonEnable" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="ToggleButton3" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.ReadyToStartVisibility" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="Label2" attribute="visible" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.ClearStats" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="ToggleButton6" attribute="value" />
+</Binding>
+
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.LastCapWorkedTime" attribute="node" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="NumericOutput2" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.CurrentCapWorkingTime" attribute="node" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="NumericOutput1" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.AvgCapWorkTime" attribute="node" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="NumericOutput3" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.StamperIncludedCheckbox" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="CheckBox1" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.CapsCounter" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="NumericOutput4" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.StamperOffsetEnable" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="NumericInput1" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.StamperOffset" attribute="node" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="NumericInput1" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.PuncherOffsetEnable" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="NumericInput2" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.PuncherOffset" attribute="node" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="NumericInput2" attribute="node" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.PuncherIncludedCheckboxEnable" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="CheckBox2" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.PuncherIncludedCheckbox" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="CheckBox2" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gRecipes.Recipe.List.SelectedIndex" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="Table1" attribute="selectedRow" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gRecipes.Recipe.List.Names" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="TableItem1" attribute="stringValue" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.RecipesEnable" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="Table1" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.StamperIncludedCheckboxEnable" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="CheckBox1" attribute="enable" />
+</Binding>
+</Bindings>
+</BindingsSet>

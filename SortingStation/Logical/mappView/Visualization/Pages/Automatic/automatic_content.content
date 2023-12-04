@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="automatic_content" height="680" width="1280" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton1" top="10" left="15" width="195" zIndex="4" text="$IAT/Automatic/Link" cornerRadius="10px" fontSize="20px" style="Command" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton2" top="50" left="15" width="195" zIndex="5" text="$IAT/Automatic/AutoMode" cornerRadius="10px" fontSize="20px" style="Command" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton3" top="190" left="520" width="340" height="340" zIndex="6" text="$IAT/Automatic/Start" cornerRadius="500px" backColor="rgba(0, 192, 0, 1)" fontSize="30px" style="Command" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton5" top="190" left="915" width="340" height="340" zIndex="7" text="$IAT/Automatic/Init" cornerRadius="500px" fontSize="30px" style="Command" />
+    <Widget xsi:type="widgets.brease.BasicSlider" id="BasicSlider1" top="135" left="165" width="266" height="130" zIndex="8" changeOnMove="false" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':1}}" showUnit="true" showValueDisplay="true" thumbSize="30px" unit="{'metric':'C16','imperial':'IU','imperial-us':'IU'}" valueDisplaySize="50px" trackColor="rgba(0, 0, 0, 1)" fontSize="15px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label1" top="195" left="20" width="196" zIndex="1" text="$IAT/Automatic/Speed" textAlign="left" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton4" top="190" left="520" width="340" height="340" zIndex="9" text="$IAT/Automatic/Stop" cornerRadius="500px" backColor="rgba(255, 0, 0, 1)" mouseDownBackColor="rgba(255, 0, 0, 1)" fontSize="30px" checkedBackColor="rgba(255, 0, 0, 1)" style="Command" />
+    <Widget xsi:type="widgets.brease.Label" id="Label2" top="540" left="525" width="325" zIndex="10" text="$IAT/Automatic/ReadyToStart" textColor="rgba(0, 192, 0, 1)" textAlign="center" fontSize="20px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label4" top="526" left="19" width="340" zIndex="11" text="$IAT/Automatic/ActCapTime" textAlign="left" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label5" top="556" left="20" width="340" zIndex="12" text="$IAT/Automatic/PrevCapTime" textAlign="left" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label6" top="585" left="20" width="385" zIndex="13" text="$IAT/Automatic/AvgCapTime" textAlign="left" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.ToggleButton" id="ToggleButton6" top="625" left="180" width="160" zIndex="14" text="$IAT/Automatic/ClearStats" cornerRadius="10px" style="Command" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput1" top="525" left="355" width="125" zIndex="15" unit="{'metric':'SEC','imperial':'SEC','imperial-us':'SEC'}" unitAlign="right" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput2" top="555" left="355" width="125" zIndex="16" unit="{'metric':'SEC','imperial':'SEC','imperial-us':'SEC'}" unitAlign="right" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput3" top="585" left="355" width="125" zIndex="17" unit="{'metric':'SEC','imperial':'SEC','imperial-us':'SEC'}" unitAlign="right" />
+    <Widget xsi:type="widgets.brease.CheckBox" id="CheckBox1" top="345" left="175" width="50" height="50" zIndex="23" boxSize="40" fontSize="20px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label7" top="255" left="20" width="190" zIndex="2" text="$IAT/Automatic/StamperOffset" textAlign="left" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label8" top="496" left="20" width="340" zIndex="18" text="$IAT/Automatic/TotCaps" textAlign="left" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput4" top="500" left="356" width="125" zIndex="19" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" />
+    <Widget xsi:type="widgets.brease.Label" id="Label9" top="105" left="15" width="475" zIndex="20" text="$IAT/Automatic/Par" borderWidth="0px 0px 1px 0px" borderColor="rgba(0, 0, 0, 1)" borderStyle="solid" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontSize="20px" />
+    <Widget xsi:type="widgets.brease.Rectangle" id="Rectangle1" top="105" left="15" width="475" height="340" zIndex="0" cornerRadius="10px" lineColor="rgba(0, 0, 0, 1)" backColor="rgba(255, 255, 255, 1)" />
+    <Widget xsi:type="widgets.brease.Label" id="Label10" top="355" left="20" width="180" zIndex="21" text="$IAT/Automatic/StamperInc" textAlign="left" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label11" top="460" left="15" width="475" zIndex="22" text="$IAT/Automatic/Stats" borderWidth="0px 0px 1px 0px" borderColor="rgba(0, 0, 0, 1)" borderStyle="solid" textColor="rgba(0, 0, 0, 1)" textAlign="center" fontSize="20px" />
+    <Widget xsi:type="widgets.brease.Rectangle" id="Rectangle2" top="460" left="15" width="475" height="205" zIndex="3" cornerRadius="10px" lineColor="rgba(0, 0, 0, 1)" backColor="rgba(255, 255, 255, 1)" />
+    <Widget xsi:type="widgets.brease.Label" id="Label12" top="310" left="20" width="190" zIndex="24" text="$IAT/Automatic/PuncherOffset" textAlign="left" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="NumericInput1" top="255" left="175" width="115" zIndex="25" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':1}}" unit="{'metric':'MMT','imperial':'INH','imperial-us':'INH'}" unitAlign="right" cornerRadius="10px" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="NumericInput2" top="305" left="175" width="115" zIndex="26" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':0,'minimumIntegerDigits':1}}" unit="{'metric':'MMT','imperial':'INH','imperial-us':'INH'}" unitAlign="right" cornerRadius="10px" />
+    <Widget xsi:type="widgets.brease.CheckBox" id="CheckBox2" top="390" left="175" width="50" height="50" zIndex="28" boxSize="40" fontSize="20px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label13" top="400" left="20" width="180" zIndex="27" text="$IAT/Automatic/PuncherInc" textAlign="left" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.Table" id="Table1" top="255" left="310" width="170" height="180" zIndex="29" cornerRadius="10px">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.TableItem" id="TableItem1" zIndex="0" columnWidth="170" text="$IAT/Automatic/Recipes" />
+      </Widgets>
+    </Widget>
+  </Widgets>
+</Content>

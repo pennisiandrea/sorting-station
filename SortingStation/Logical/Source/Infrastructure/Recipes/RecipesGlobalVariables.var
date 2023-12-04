@@ -1,0 +1,3 @@
+VAR
+	gRecipes : MpRecipeUIConnectType;
+END_VAR

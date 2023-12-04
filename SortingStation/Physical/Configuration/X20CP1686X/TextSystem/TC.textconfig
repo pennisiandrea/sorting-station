@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="TextConfig" Type="TextConfig">
+    <Group ID="Languages">
+      <Property ID="UserDefaultLanguage" Value="en" />
+      <Property ID="UserFallbackLanguage" Value="en" />
+      <Group ID="TargetLanguages">
+        <Property ID="TargetLanguage[1]" Value="en" />
+        <Property ID="TargetLanguage[2]" Value="it" />
+      </Group>
+    </Group>
+    <Group ID="TargetFiles">
+      <Property ID="TargetFile[1]" Value="Source.ColourSorter.ColourSorterAlarms.tmx" />
+      <Property ID="TargetFile[2]" Value="Source.Conveyor.ConveyorAlarms.tmx" />
+      <Property ID="TargetFile[3]" Value="Source.Puncher.PuncherAlarms.tmx" />
+      <Property ID="TargetFile[4]" Value="Source.MainMachine.MainMachineAlarms.tmx" />
+      <Property ID="TargetFile[5]" Value="mappView.Resources.Texts.General.tmx" />
+      <Property ID="TargetFile[6]" Value="mappView.Resources.Texts.Automatic.tmx" />
+      <Property ID="TargetFile[7]" Value="mappView.Resources.Texts.Service.tmx" />
+      <Property ID="TargetFile[8]" Value="mappView.Resources.Texts.Manual.tmx" />
+      <Property ID="TargetFile[9]" Value="mappView.Resources.Texts.Alarms.tmx" />
+      <Property ID="TargetFile[10]" Value="mappView.Resources.Texts.States.tmx" />
+    </Group>
+  </Element>
+</Configuration>

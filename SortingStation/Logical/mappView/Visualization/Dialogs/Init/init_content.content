@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="init_content" height="250" width="300" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.Label" id="Label1" top="10" left="5" width="285" height="120" zIndex="1" multiLine="true" text="$IAT/General/RemoveCaps" wordWrap="true" textAlign="center" fontSize="16px" />
+    <Widget xsi:type="widgets.brease.Button" id="ToggleButton2" top="190" left="70" width="160" zIndex="2" text="$IAT/General/Confirm" cornerRadius="10px" fontSize="20px" style="Command" />
+    <Widget xsi:type="widgets.brease.Rectangle" id="Rectangle1" top="0" left="0" width="300" height="250" zIndex="0" borderWidth="5px" cornerRadius="10px" lineColor="rgba(255, 133, 0, 1)" />
+  </Widgets>
+</Content>

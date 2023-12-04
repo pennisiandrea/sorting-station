@@ -1,0 +1,5 @@
+VAR
+	MachineState : MachineStateType;
+	Internal : InternalType;
+	MpRecipeRegParFB : MpRecipeRegPar; (*Recipe register functionblock*)
+END_VAR

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<OpcUaSource FileVersion="9" ArVersion="H4.93">
+  <Aliases>
+    <ACLAliases>
+      <ACL Id="1">
+        <ACE RoleName="Everyone" Access="0x005F" />
+        <ACE RoleName="Administrators" Access="0x017F" />
+      </ACL>
+      <ACL Id="2">
+        <ACE RoleName="Everyone" Access="0x007F" />
+        <ACE RoleName="Administrators" Access="0x017F" />
+      </ACL>
+    </ACLAliases>
+    <EURangeViolationAliases />
+    <EURangesAliases>
+      <EURanges Id="1">
+        <EURange>
+          <Low ValueProvider="Const">50</Low>
+          <High ValueProvider="Const">500</High>
+        </EURange>
+      </EURanges>
+      <EURanges Id="4">
+        <EURange>
+          <Low ValueProvider="Const">-500</Low>
+          <High ValueProvider="Const">500</High>
+        </EURange>
+      </EURanges>
+      <EURanges Id="7">
+        <EURange>
+          <Low ValueProvider="Const">0</Low>
+          <High ValueProvider="Const">200</High>
+        </EURange>
+      </EURanges>
+      <EURanges Id="8">
+        <EURange>
+          <Low ValueProvider="Const">1000</Low>
+          <High ValueProvider="Const">5000</High>
+        </EURange>
+      </EURanges>
+      <EURanges Id="9">
+        <EURange>
+          <Low ValueProvider="Const">0</Low>
+          <High ValueProvider="Const">100</High>
+        </EURange>
+      </EURanges>
+      <EURanges Id="10">
+        <EURange>
+          <Low ValueProvider="Const">50</Low>
+          <High ValueProvider="Const">5000</High>
+        </EURange>
+      </EURanges>
+    </EURangesAliases>
+    <EngineeringUnitAliases>
+      <EngineeringUnit Id="1" UnitId="4403510" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="millimetre per second" Symbol="mm/s" />
+      <EngineeringUnit Id="3" UnitId="4403766" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="millisecond" Symbol="ms" />
+      <EngineeringUnit Id="4" UnitId="5066068" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="millimetre" Symbol="mm" />
+      <EngineeringUnit Id="5" UnitId="5059633" NameSpaceUri="http://www.opcfoundation.org/UA/units/un/cefact" Name="millimetre per second squared" Symbol="mm/s²" />
+    </EngineeringUnitAliases>
+  </Aliases>
+  <DefaultView AclId="1">
+    <Module Name="&lt;Default&gt;">
+      <GlobalVariables Name="Global Variables">
+        <Variable Name="gHMI" RecursiveEnable="2">
+          <Variable AclId="2" AclInherit="2" Name="AutomaticPage">
+            <Variable Name="ConveyorSpeed" EURangesId="1" EngineeringUnitId="1" />
+            <Variable Name="CurrentCapWorkingTime" EngineeringUnitId="3" />
+            <Variable Name="LastCapWorkedTime" EngineeringUnitId="3" />
+            <Variable Name="AvgCapWorkTime" EngineeringUnitId="3" />
+            <Variable Name="StamperOffset" EURangesId="7" EngineeringUnitId="4" />
+            <Variable Name="PuncherOffset" EURangesId="9" EngineeringUnitId="4" />
+          </Variable>
+          <Variable Name="ManualPage">
+            <Variable Name="ConveyorSpeed" EURangesId="4" EngineeringUnitId="1" />
+            <Variable Name="ConveyorAcceleration" EURangesId="8" EngineeringUnitId="5" />
+            <Variable Name="PuncherPosition" EURangesId="7" EngineeringUnitId="4" />
+            <Variable Name="PuncherSpeed" EURangesId="10" EngineeringUnitId="1" />
+            <Variable Name="PuncherAcceleration" EURangesId="8" EngineeringUnitId="5" />
+          </Variable>
+        </Variable>
+        <Variable Name="gMainMachine" RecursiveEnable="2" />
+        <Variable AclId="2" AclInherit="2" Name="gAlarms" RecursiveEnable="2" />
+        <Variable Name="gRecipes" RecursiveEnable="2" />
+        <Variable Name="gPickingStation" RecursiveEnable="2" />
+      </GlobalVariables>
+      <Task AclId="2" AclInherit="2" Name="RSModelSor">
+        <Variable Name="aiPuncherAxisActPos" />
+        <Variable Name="aoPuncherAxisSetPos" />
+        <Variable Name="aoSortingConveyorSetSpeed" />
+        <Variable Name="diCapColourMetallic" />
+        <Variable Name="diCapColourNotBlack" />
+        <Variable Name="diCapOnSortingConveyor" />
+        <Variable Name="diColourDetection" />
+        <Variable Name="diHolePuncherBack" />
+        <Variable Name="diHolePuncherForward" />
+        <Variable Name="diLaneGate1Back" />
+        <Variable Name="diLaneGate1Forward" />
+        <Variable Name="diLaneGate2Back" />
+        <Variable Name="diLaneGate2Forward" />
+        <Variable Name="diLaneTop" />
+        <Variable Name="doCapStopper" />
+        <Variable Name="doCreateCapForSorting" />
+        <Variable Name="doHolePuncher" />
+        <Variable Name="doLaneGate1" />
+        <Variable Name="doLaneGate2" />
+        <Variable Name="doLaneStopper1Clear" />
+        <Variable Name="doLaneStopper2Clear" />
+        <Variable Name="doLaneStopper3Clear" />
+        <Variable Name="doSortingConveyorClear" />
+      </Task>
+    </Module>
+  </DefaultView>
+</OpcUaSource>

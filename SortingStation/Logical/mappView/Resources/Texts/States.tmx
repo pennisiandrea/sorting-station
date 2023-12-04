@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">IAT/States</prop>
+  </header>
+  <body>
+    <tu tuid="WaitingInit">
+      <tuv xml:lang="it">
+        <seg>Attesa inizializzazione</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Waiting initialization</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Servus Welt!</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Bonjour tout le monde!</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Manual">
+      <tuv xml:lang="it">
+        <seg>Modalita manuale</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Manual mode</seg>
+      </tuv>
+    </tu>
+    <tu tuid="WaitingStart">
+      <tuv xml:lang="it">
+        <seg>Attesa start</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Waiting start</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Init">
+      <tuv xml:lang="it">
+        <seg>Inizializzazione</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Initializing</seg>
+      </tuv>
+    </tu>
+    <tu tuid="WaitingCap">
+      <tuv xml:lang="it">
+        <seg>Attesa tappo</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Waiting cap</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Punching">
+      <tuv xml:lang="it">
+        <seg>In punzonatura</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Punching the cap</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Error">
+      <tuv xml:lang="it">
+        <seg>Errore</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Error</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Delivering">
+      <tuv xml:lang="it">
+        <seg>Consegno il tappo</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Delivering the cap</seg>
+      </tuv>
+    </tu>
+    <tu tuid="WaitingModules">
+      <tuv xml:lang="it">
+        <seg>Attesa moduli</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Waiting modules ready</seg>
+      </tuv>
+    </tu>
+    <tu tuid="WaitingMode">
+      <tuv xml:lang="it">
+        <seg>Attesa scelta modalità</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Waiting working mode selection</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

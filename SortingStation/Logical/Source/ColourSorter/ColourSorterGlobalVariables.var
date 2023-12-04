@@ -1,0 +1,3 @@
+VAR
+	gColourSorter : ColourSorterType;
+END_VAR

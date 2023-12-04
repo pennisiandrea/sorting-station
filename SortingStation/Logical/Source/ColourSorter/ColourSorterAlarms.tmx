@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">Source/ColourSorter/Alarms</prop>
+  </header>
+  <body>
+    <tu tuid="ColourSorterTimeoutSetLanes">
+      <tuv xml:lang="it">
+        <seg>ColourSorter non è stato in grado di posizionare le alette delle linee</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>ColourSorter was not able to set lanes gates</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ColourSorterMissingCap">
+      <tuv xml:lang="it">
+        <seg>ColourSorter ha rilevato la perdita di un tappo</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>ColourSorter detected a missed cap</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ColourSorterInvalidSensorsCombinationLane1">
+      <tuv xml:lang="it">
+        <seg>ColourSorter ha rilevato una combinazione anomala dei sonsori avanti/indietro linea 1</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>ColourSorter forward/backward sensors simultaneously active lane 1</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ColourSorterInvalidSensorsCombinationLane2">
+      <tuv xml:lang="it">
+        <seg>ColourSorter ha rilevato una combinazione anomala dei sonsori avanti/indietro linea 2</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>ColourSorter forward/backward sensors simultaneously active lane 2</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ColourSorterInvalidParametersCombination">
+      <tuv xml:lang="it">
+        <seg>ColourSorter ha rilevato una combinazione anomala nei parametri di ricetta linea/colore</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>ColourSorter invalid combination of colors/lines</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

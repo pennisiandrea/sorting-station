@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">IAT/General</prop>
+  </header>
+  <body>
+    <tu tuid="Comm">
+      <tuv xml:lang="it">
+        <seg>Comunicazione con stazione di presa:</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Communication with picking station:</seg>
+      </tuv>
+    </tu>
+    <tu tuid="RemoveCaps">
+      <tuv xml:lang="it">
+        <seg>Rimuovere tutte le cap presenti in macchina</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Please remove all caps from the machine and press confirm</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Confirm">
+      <tuv xml:lang="it">
+        <seg>Conferma</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Confirm</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Close">
+      <tuv xml:lang="it">
+        <seg>Chiudi</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Close</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Login">
+      <tuv xml:lang="it">
+        <seg>Login</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Login</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

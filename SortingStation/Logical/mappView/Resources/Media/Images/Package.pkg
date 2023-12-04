@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File">BackGround.png</Object>
+    <Object Type="File">MotorShaft.svg</Object>
+    <Object Type="File">BuR_Logo.png</Object>
+    <Object Type="File">MachineOverview.svg</Object>
+    <Object Type="File">MachineOverview.png</Object>
+  </Objects>
+</Package>

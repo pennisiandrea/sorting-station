@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">Source/Conveyor/Alarms</prop>
+  </header>
+  <body>
+    <tu tuid="ConveyorTimeoutHoming">
+      <tuv xml:lang="it">
+        <seg>Conveyor ha fallito l'homing</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Conveyor was not able to homing</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ConveyorTimeoutPowerOn">
+      <tuv xml:lang="it">
+        <seg>Conveyor ha fallito il power on</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Conveyor was not able to power on</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ConveyorAxisError">
+      <tuv xml:lang="it">
+        <seg>Conveyor ha rilevato una malfunzionamento dell'asse</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Conveyor axis is in error</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ConveyorInitFail">
+      <tuv xml:lang="it">
+        <seg>Conveyor non è riuscito ad eseguire l'inizializzazione</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Conveyor cannot be initialized</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

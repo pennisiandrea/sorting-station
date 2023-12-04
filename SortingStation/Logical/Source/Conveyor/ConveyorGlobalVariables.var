@@ -1,0 +1,3 @@
+VAR
+    gConveyor : ConveyorType;
+END_VAR

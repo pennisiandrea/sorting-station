@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">Source/MainMachine/Alarms</prop>
+  </header>
+  <body>
+    <tu tuid="MainMachineEmergencyCircuitInterrupted">
+      <tuv xml:lang="it">
+        <seg>Cirucito di emergenza interrotto</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Emergency circuit interrupted</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainMachineInitializationTimeout">
+      <tuv xml:lang="it">
+        <seg>Fallita inizializzazione</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Machine was not able to initialize a module</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainMachinePickingStationInError">
+      <tuv xml:lang="it">
+        <seg>Stazione di presa in errore</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Picking station in error</seg>
+      </tuv>
+    </tu>
+    <tu tuid="MainMachineCommunicationLost">
+      <tuv xml:lang="it">
+        <seg>Persa comunicazione con stazione di presa</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Lost comunication with picking station</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

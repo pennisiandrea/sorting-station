@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+<Objects>
+    <Object Type="File">ConveyorGlobalTypes.typ</Object>
+    <Object Type="File">ConveyorGlobalVariables.var</Object>
+    <Object Type="Program" Language="IEC">ConveyorProgram</Object>
+    <Object Type="File">ConveyorAlarms.tmx</Object>
+</Objects>
+<Dependencies>
+    <Dependency ObjectName="standard" />
+    <Dependency ObjectName="asstring" />
+</Dependencies>
+</Package>

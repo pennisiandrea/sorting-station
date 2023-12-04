@@ -1,0 +1,6 @@
+VAR
+	gMainMachine : MainMachineType;
+END_VAR
+VAR CONSTANT
+	STATS_HISTORY_MAX_INDEX : USINT := 9;
+END_VAR

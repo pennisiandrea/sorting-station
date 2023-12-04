@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">Source/Puncher/Alarms</prop>
+  </header>
+  <body>
+    <tu tuid="PuncherAxisError">
+      <tuv xml:lang="it">
+        <seg>Puncher ha rilevato un malfunzionamento dell'asse</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Puncher axis is in error</seg>
+      </tuv>
+    </tu>
+    <tu tuid="PuncherInvalidSensorsCombination">
+      <tuv xml:lang="it">
+        <seg>Puncher ha rilevato una combinazione anomala dei sensori</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Puncher forward/backward sensors simultaneously active</seg>
+      </tuv>
+    </tu>
+    <tu tuid="PuncherTimeoutHoming">
+      <tuv xml:lang="it">
+        <seg>Puncher ha fallito l'homing</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Puncher axis was not able to homing</seg>
+      </tuv>
+    </tu>
+    <tu tuid="PuncherTimeoutPowerOn">
+      <tuv xml:lang="it">
+        <seg>Puncher ha fallito il power on</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Puncher axis was not able to power on</seg>
+      </tuv>
+    </tu>
+    <tu tuid="PuncherTimeoutPunchBackward">
+      <tuv xml:lang="it">
+        <seg>Puncher ha fallito il movimento indietro</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Puncher was not able to reach backward position</seg>
+      </tuv>
+    </tu>
+    <tu tuid="PuncherTimeoutPunchForward">
+      <tuv xml:lang="it">
+        <seg>Puncher ha fallito il movimento avanti</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Puncher was not able to reach forward position</seg>
+      </tuv>
+    </tu>
+    <tu tuid="PuncherAxisTimeout">
+      <tuv xml:lang="it">
+        <seg>Puncher non è stato in grado di comunicare il comando all'asse</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Puncher axis was not able to resolve the command</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

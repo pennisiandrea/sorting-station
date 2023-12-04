@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">IAT/Manual</prop>
+  </header>
+  <body>
+    <tu tuid="Manual">
+      <tuv xml:lang="it">
+        <seg>Manuale</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Manual</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Stopper">
+      <tuv xml:lang="it">
+        <seg>Stopper</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Stopper</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Home">
+      <tuv xml:lang="it">
+        <seg>Riferimento</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Home</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Power">
+      <tuv xml:lang="it">
+        <seg>Potenza</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Power On</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Jog">
+      <tuv xml:lang="it">
+        <seg>Muovi</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Move</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Forward">
+      <tuv xml:lang="it">
+        <seg>Avanti</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Forward</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Backward">
+      <tuv xml:lang="it">
+        <seg>Indietro</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Backward</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Magazine">
+      <tuv xml:lang="it">
+        <seg>Magazzino</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Magazine</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CapInPosition">
+      <tuv xml:lang="it">
+        <seg>Tappo in posizione</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Cap in position</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Conveyor">
+      <tuv xml:lang="it">
+        <seg>Tappeto</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Conveyor</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Puncher">
+      <tuv xml:lang="it">
+        <seg>Punzone</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Puncher</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Punch">
+      <tuv xml:lang="it">
+        <seg>Punzona</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Punch</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Cmd">
+      <tuv xml:lang="it">
+        <seg>Comandi</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Commands</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Fbk">
+      <tuv xml:lang="it">
+        <seg>Risposte</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Feedbacks</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Homed">
+      <tuv xml:lang="it">
+        <seg>Riferimento</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Homed</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Powered">
+      <tuv xml:lang="it">
+        <seg>Potenza</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Powered</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CapAtStart">
+      <tuv xml:lang="it">
+        <seg>Tappo all'inizio</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Cap at start</seg>
+      </tuv>
+    </tu>
+    <tu tuid="CapAtExit">
+      <tuv xml:lang="it">
+        <seg>Tappo alla fine</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Cap at exit</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Speed">
+      <tuv xml:lang="it">
+        <seg>Velocità</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Speed</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Position">
+      <tuv xml:lang="it">
+        <seg>Posizione</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Position</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Acc">
+      <tuv xml:lang="it">
+        <seg>Accelerazione</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Acceleration</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ManualMode">
+      <tuv xml:lang="it">
+        <seg>Modo manuale</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Manual mode</seg>
+      </tuv>
+    </tu>
+    <tu tuid="ColourSorter">
+      <tuv xml:lang="it">
+        <seg>Smistatore</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Colour sorter</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Lane1Gate">
+      <tuv xml:lang="it">
+        <seg>Aletta corsia 1</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Gate lane 1</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Lane2Gate">
+      <tuv xml:lang="it">
+        <seg>Aletta corsia 2</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Gate lane 2</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Lane1Fwd">
+      <tuv xml:lang="it">
+        <seg>Aletta corsia 1 avanti</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Lane 1 forward</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Lane1Bwd">
+      <tuv xml:lang="it">
+        <seg>Aletta corsia 1 indietro</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Lane 1 backward</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Lane2Fwd">
+      <tuv xml:lang="it">
+        <seg>Aletta corsia 2 avanti</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Lane 2 forward</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Lane2Bwd">
+      <tuv xml:lang="it">
+        <seg>Aletta corsia 2 indietro</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Lane 2 backward</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Metallic">
+      <tuv xml:lang="it">
+        <seg>Colore metallico</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Metallic color</seg>
+      </tuv>
+    </tu>
+    <tu tuid="NotBlack">
+      <tuv xml:lang="it">
+        <seg>Colore non nero</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Not black color</seg>
+      </tuv>
+    </tu>
+    <tu tuid="PunchFwd">
+      <tuv xml:lang="it">
+        <seg>Punzone avanti</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Puncher forward</seg>
+      </tuv>
+    </tu>
+    <tu tuid="PunchBwd">
+      <tuv xml:lang="it">
+        <seg>Punzone indietro</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Puncher backward</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

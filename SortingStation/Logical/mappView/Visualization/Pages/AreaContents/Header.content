@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="header_content" height="80" width="1280" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.Image" id="Image1" top="15" left="5" width="130" height="55" zIndex="0" image="Media/Images/BuR_Logo.png" />
+    <Widget xsi:type="widgets.brease.DateTimeOutput" id="DateTimeOutput1" top="5" left="890" width="355" zIndex="1" textAlign="left" padding="0px" />
+    <Widget xsi:type="widgets.brease.FlyOut" id="FlyOut1" top="0" left="0" width="1280" height="500" zIndex="3" buttonOffset="1215" docking="top" image="Media/SymbolLib/Alarm/Alarm.png" imageAlign="top" text="12" buttonHeight="65" buttonWidth="60" imageHeight="40" imageWidth="45" imageColor="rgba(0, 0, 0, 1)" buttonBorderColor="rgba(0, 0, 0, 1)" buttonBorderWidth="0px 2px 2px 2px" buttonCornerRadius="0px 0px 10px 10px" buttonBackColor="rgba(255, 136, 0, 1)" borderWidth="1px" backColor="rgba(255, 136, 0, 1)" textColor="rgba(255, 255, 255, 1)" textAlign="center" textRotation="horizontal" bold="true">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.TabControl" id="TabControl1" top="10" left="15" width="1249" height="480" zIndex="0" backColor="rgba(255, 255, 255, 1)" cornerRadius="0px 0px 10px 10px">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.TabItem" id="TabItem1" left="0" width="140" zIndex="0" text="$IAT/Alarms/ActiveAlarms" cornerRadius="10px 0px 0px 0px" activeCornerRadius="10px 0px 0px 0px">
+              <Widgets>
+                <Widget xsi:type="widgets.brease.AlarmList" id="AlarmList1" top="10" left="10" width="1230" height="380" zIndex="0" itemsPerPage="4">
+                  <Widgets>
+                    <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListDateTime" zIndex="0" columnType="timestamp" text="$IAT/Alarms/DateTime" />
+                    <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListMessage" width="825" zIndex="1" text="$IAT/Alarms/Message" />
+                    <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListState" zIndex="2" columnType="state" text="$IAT/Alarms/State" />
+                  </Widgets>
+                </Widget>
+                <Widget xsi:type="widgets.brease.ToggleButton" id="AckButton" top="405" left="14" width="167" zIndex="1" text="$IAT/Alarms/Ack" cornerRadius="10px" style="Command" />
+                <Widget xsi:type="widgets.brease.ToggleButton" id="AckAllButton" top="405" left="209" width="165" zIndex="2" text="$IAT/Alarms/AckAll" cornerRadius="10px" style="Command" />
+              </Widgets>
+            </Widget>
+            <Widget xsi:type="widgets.brease.TabItem" id="TabItem2" left="0" width="140" zIndex="1" text="$IAT/Alarms/AlarmHistory" cornerRadius="0px 10px 0px 0px" activeCornerRadius="0px 10px 0px 0px">
+              <Widgets>
+                <Widget xsi:type="widgets.brease.AlarmHistory" id="AlarmHistory1" top="14" left="10" width="1230" height="426" zIndex="0" itemsPerPage="6">
+                  <Widgets>
+                    <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlarmHistoryDateTime" zIndex="0" columnType="timestamp" text="$IAT/Alarms/DateTime" />
+                    <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlarmHistoryMessage" width="695" zIndex="1" text="$IAT/Alarms/Message" />
+                    <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlarmHistoryOldState" width="165" zIndex="2" columnType="old state" text="$IAT/Alarms/OldState" />
+                    <Widget xsi:type="widgets.brease.AlarmHistoryItem" id="AlarmHistoryNewState" width="165" zIndex="3" columnType="new state" text="$IAT/Alarms/NewState" />
+                  </Widgets>
+                </Widget>
+              </Widgets>
+            </Widget>
+          </Widgets>
+        </Widget>
+      </Widgets>
+    </Widget>
+    <Widget xsi:type="widgets.brease.Ellipse" id="Ellipse1" top="40" left="1165" width="30" height="30" zIndex="4" backColor="rgba(255, 0, 0, 1)" />
+    <Widget xsi:type="widgets.brease.Ellipse" id="Ellipse2" top="40" left="1165" width="30" height="30" zIndex="5" backColor="rgba(0, 192, 0, 1)" />
+    <Widget xsi:type="widgets.brease.Label" id="Label1" top="35" left="890" width="265" height="40" zIndex="6" text="$IAT/General/Comm" fontSize="16px" padding="0px" />
+    <Widget xsi:type="widgets.brease.Image" id="Image2" top="10" left="790" width="70" height="60" zIndex="7" image="Media/SymbolLib/User/Login.svg" />
+    <Widget xsi:type="widgets.brease.Label" id="Label2" top="25" left="205" width="550" zIndex="8" text="$IAT/States/Delivering" textAlign="center" fontSize="20px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label3" top="25" left="205" width="550" zIndex="9" text="$IAT/States/Error" textColor="rgba(255, 0, 0, 1)" textAlign="center" fontSize="20px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label4" top="25" left="205" width="550" zIndex="10" text="$IAT/States/Init" textAlign="center" fontSize="20px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label5" top="25" left="205" width="550" zIndex="11" text="$IAT/States/Manual" textAlign="center" fontSize="20px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label7" top="25" left="205" width="550" zIndex="12" text="$IAT/States/Punching" textAlign="center" fontSize="20px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label8" top="25" left="205" width="550" zIndex="13" text="$IAT/States/WaitingInit" textAlign="center" fontSize="20px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label9" top="25" left="205" width="550" zIndex="14" text="$IAT/States/WaitingMode" textAlign="center" fontSize="20px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label10" top="25" left="205" width="550" zIndex="15" text="$IAT/States/WaitingModules" textAlign="center" fontSize="20px" />
+    <Widget xsi:type="widgets.brease.Label" id="Label11" top="25" left="205" width="550" zIndex="16" text="$IAT/States/WaitingStart" textAlign="center" fontSize="20px" />
+    <Widget xsi:type="widgets.brease.Line" id="Line1" zIndex="17" x1="0" x2="1280" y1="77" y2="77" lineColor="rgba(255, 133, 0, 1)" lineWidth="8px" />
+  </Widgets>
+</Content>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="Package">Infrastructure</Object>
+    <Object Type="Package">ColourSorter</Object>
+    <Object Type="Package">Conveyor</Object>
+    <Object Type="Package">Puncher</Object>
+    <Object Type="Package">MainMachine</Object>
+    <Object Type="Package">HMI</Object>
+    <Object Type="Package">PickingStation</Object>
+  </Objects>
+</Package>

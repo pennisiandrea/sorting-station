@@ -1,0 +1,9 @@
+VAR
+	MachineState : MachineStateType;
+	Internal : InternalType;
+	CommunicationInitialized : BOOL;
+	CapWorkStopwatch : TON := (PT:=T#24d);
+	CapsWorkingTimeHistory : ARRAY[0..STATS_HISTORY_MAX_INDEX] OF TIME;
+	TotHistoryWorkedTime : TIME;
+	Index : USINT;
+END_VAR

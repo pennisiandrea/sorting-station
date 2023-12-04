@@ -1,0 +1,4 @@
+VAR
+	MachineState : MachineStateType;
+	Internal : InternalType;
+END_VAR

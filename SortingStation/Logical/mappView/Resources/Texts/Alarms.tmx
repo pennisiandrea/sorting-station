@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">IAT/Alarms</prop>
+  </header>
+  <body>
+    <tu tuid="ActiveAlarms">
+      <tuv xml:lang="it">
+        <seg>Allarmi attivi</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Active alarms</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Servus Welt!</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Bonjour tout le monde!</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AlarmHistory">
+      <tuv xml:lang="it">
+        <seg>Storico allarmi</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Alarm history</seg>
+      </tuv>
+    </tu>
+    <tu tuid="DateTime">
+      <tuv xml:lang="it">
+        <seg>Data e ora</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Date and time</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Message">
+      <tuv xml:lang="it">
+        <seg>Messaggio</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Message</seg>
+      </tuv>
+    </tu>
+    <tu tuid="State">
+      <tuv xml:lang="it">
+        <seg>Stato</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>State</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Ack">
+      <tuv xml:lang="it">
+        <seg>Presa visione</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Acknowledge</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AckAll">
+      <tuv xml:lang="it">
+        <seg>Presa visione tutti</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Acknowledge all</seg>
+      </tuv>
+    </tu>
+    <tu tuid="OldState">
+      <tuv xml:lang="it">
+        <seg>Stato precedente</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Old state</seg>
+      </tuv>
+    </tu>
+    <tu tuid="NewState">
+      <tuv xml:lang="it">
+        <seg>Stato successivo</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>New state</seg>
+      </tuv>
+    </tu>
+    <tu tuid="AlarmCnt">
+      <tuv xml:lang="it">
+        <seg>Allarmi pendenti:</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Pending alarms:</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

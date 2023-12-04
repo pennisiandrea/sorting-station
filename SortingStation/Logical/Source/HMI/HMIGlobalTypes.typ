@@ -33,6 +33,7 @@ TYPE
 		StamperOffset : REAL;
 		StamperOffsetEnable : BOOL;
 		RecipesEnable : BOOL;
+		ShowLinkMsg : BOOL;
 	END_STRUCT;
 	HMIManualPageType : 	STRUCT  (*HMI Interface Output type*)
 		ManualButtonEnable : BOOL;

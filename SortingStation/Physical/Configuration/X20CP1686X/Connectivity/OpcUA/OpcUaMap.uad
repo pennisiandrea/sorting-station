@@ -83,6 +83,9 @@
             <Variable Name="PuncherSpeed" EURangesId="10" EngineeringUnitId="1" />
             <Variable Name="PuncherAcceleration" EURangesId="8" EngineeringUnitId="5" />
           </Variable>
+          <Variable Name="HeaderContent">
+            <Variable AclId="2" AclInherit="2" Name="ResetAlarms" />
+          </Variable>
         </Variable>
         <Variable Name="gMainMachine" RecursiveEnable="2" />
         <Variable AclId="2" AclInherit="2" Name="gAlarms" RecursiveEnable="2" />

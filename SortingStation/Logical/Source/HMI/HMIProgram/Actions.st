@@ -24,7 +24,8 @@ ACTION AutomaticPageAction:
 	ELSE
 		gHMI.AutomaticPage.LinkButtonEnable := FALSE;
 	END_IF	
-		
+	gHMI.AutomaticPage.ShowLinkMsg := gMainMachine.Commands.LinkMode AND NOT gPickingStation.Outputs.LinkActive;
+	
 	// Recipes
 	IF gMainMachine.Feedbacks.WaitModeSelection 
 		OR gMainMachine.Feedbacks.Error 
@@ -36,6 +37,19 @@ ACTION AutomaticPageAction:
 	
 	ELSE
 		gHMI.AutomaticPage.RecipesEnable := FALSE; 
+	END_IF
+	
+	// Init button
+	IF gMainMachine.Feedbacks.WaitingInit OR gMainMachine.Feedbacks.Error THEN
+	
+		gHMI.AutomaticPage.InitButtonEnable := TRUE;
+	ELSE
+		gHMI.AutomaticPage.InitButtonEnable := FALSE;
+		gHMI.AutomaticPage.InitButton := FALSE;
+	END_IF
+	gMainMachine.Commands.Automatic.Init := gHMI.AutomaticPage.InitButton;
+	IF EDGEPOS(gMainMachine.Commands.Automatic.Init) THEN
+		gHMI.AutomaticPage.AutoButton := TRUE;
 	END_IF
 	
 	// Auto button	
@@ -50,16 +64,6 @@ ACTION AutomaticPageAction:
 		gHMI.ManualPage.ManualButton := FALSE;
 	END_IF
 	
-	// Init button
-	IF gMainMachine.Feedbacks.WaitingInit OR (gMainMachine.Feedbacks.Error AND gMainMachine.Feedbacks.AutomaticMode) THEN
-	
-		gHMI.AutomaticPage.InitButtonEnable := TRUE;
-	ELSE
-		gHMI.AutomaticPage.InitButtonEnable := FALSE;
-		gHMI.AutomaticPage.InitButton := FALSE;
-	END_IF
-	gMainMachine.Commands.Automatic.Init := gHMI.AutomaticPage.InitButton;
-		
 	// Start button
 	IF gMainMachine.Feedbacks.WaitingStart THEN
 		

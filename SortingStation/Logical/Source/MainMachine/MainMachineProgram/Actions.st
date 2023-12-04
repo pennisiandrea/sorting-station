@@ -58,6 +58,7 @@ END_ACTION
 
 ACTION SetAlarmsAction:      
 	
+	//Timeouts
 	IF MachineState.TimeoutTimer.Q THEN
         
 		// Throw here timeout alarms
@@ -68,22 +69,26 @@ ACTION SetAlarmsAction:
 		MachineState.NextState := ERROR;		
 	END_IF 
 	
+	//MainMachineEmergencyCircuitInterrupted
 	IF FALSE THEN
 		MpAlarmXSet(gAlarmXCoreMpLink,'MainMachineEmergencyCircuitInterrupted'); // Persistent alarm
 	ELSE
 		MpAlarmXReset(gAlarmXCoreMpLink,'MainMachineEmergencyCircuitInterrupted'); // Persistent alarm
 	END_IF
 	
+	//MainMachineCommunicationLost
 	IF NOT Internal.PickingStationCommunicationOk AND gMainMachine.Commands.LinkMode THEN
 		MpAlarmXSet(gAlarmXCoreMpLink,'MainMachineCommunicationLost');
 	ELSE
 		MpAlarmXReset(gAlarmXCoreMpLink,'MainMachineCommunicationLost');
 	END_IF
 	
-	IF gPickingStation.Outputs.Error AND gMainMachine.Commands.LinkMode AND gAlarms.Feedbacks.Pendings = 0 THEN
+	//MainMachinePickingStationInError
+	IF EDGEPOS(gPickingStation.Outputs.Error) AND gMainMachine.Commands.LinkMode AND gAlarms.Feedbacks.Pendings = 0 THEN
 		MpAlarmXSet(gAlarmXCoreMpLink,'MainMachinePickingStationInError');
 	END_IF
 	
+	//MainMachinePickingStationNotInLinkMode
 	IF gMainMachine.Commands.LinkMode 
 		AND NOT gPickingStation.Outputs.LinkActive 
 		AND MachineState.ActualState <> MANUAL 
@@ -95,6 +100,12 @@ ACTION SetAlarmsAction:
 		MpAlarmXReset(gAlarmXCoreMpLink,'MainMachinePickingStationNotInLinkMode');
 	END_IF
 	
+	//MainMachineCapMissing
+	IF MachineState.ActualState = AUTO_DELIVERING_AND_PUNCHING_CAP OR  MachineState.ActualState = AUTO_SORTING_CAP THEN
+		IF gConveyor.Feedbacks.NewCapTrigger AND gConveyor.Commands.Automatic.SendTrigger THEN
+			MpAlarmXSet(gAlarmXCoreMpLink,'MainMachineCapMissing');
+		END_IF
+	END_IF
 END_ACTION
 
 ACTION PickingStationCommunication: 

@@ -35,5 +35,6 @@
         <Widget xsi:type="widgets.brease.TableItem" id="TableItem1" zIndex="0" columnWidth="170" text="$IAT/Automatic/Recipes" />
       </Widgets>
     </Widget>
+    <Widget xsi:type="widgets.brease.Label" id="Label3" top="25" left="545" width="685" height="66" zIndex="30" multiLine="true" text="$IAT/Automatic/LinkModeMsg" wordWrap="true" textColor="rgba(255, 128, 0, 1)" textAlign="center" fontSize="20px" />
   </Widgets>
 </Content>

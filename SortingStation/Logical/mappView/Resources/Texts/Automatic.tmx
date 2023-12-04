@@ -179,5 +179,13 @@
         <seg>Recipes</seg>
       </tuv>
     </tu>
+    <tu tuid="LinkModeMsg">
+      <tuv xml:lang="it">
+        <seg>Attivare modalita collegamento anche sulla stazione di presa</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Please activate Link mode also in the picking station.</seg>
+      </tuv>
+    </tu>
   </body>
 </tmx>

@@ -123,5 +123,9 @@
 <Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.StamperIncludedCheckboxEnable" attribute="value" />
 <Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="CheckBox1" attribute="enable" />
 </Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::AsGlobalPV:gHMI.AutomaticPage.ShowLinkMsg" attribute="value" />
+<Target xsi:type="brease" contentRefId="automatic_content" widgetRefId="Label3" attribute="visible" />
+</Binding>
 </Bindings>
 </BindingsSet>

@@ -45,5 +45,13 @@
         <seg>Picking station not in link mode</seg>
       </tuv>
     </tu>
+    <tu tuid="MainMachineCapMissing">
+      <tuv xml:lang="it">
+        <seg>La macchina ha rilevato la perdita di un tappo</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>A missing cap was detected</seg>
+      </tuv>
+    </tu>
   </body>
 </tmx>

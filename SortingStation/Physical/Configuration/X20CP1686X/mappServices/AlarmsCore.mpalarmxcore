@@ -117,6 +117,10 @@
         <Property ID="Message" Value="{$Source/MainMachine/Alarms/MainMachinePickingStationNotInLinkMode}" />
         <Selector ID="Behavior" Value="PersistentAlarm" />
       </Group>
+      <Group ID="[21]">
+        <Property ID="Name" Value="MainMachineCapMissing" />
+        <Property ID="Message" Value="{$Source/MainMachine/Alarms/MainMachineCapMissing}" />
+      </Group>
     </Group>
   </Element>
 </Configuration>

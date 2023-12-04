@@ -11,12 +11,20 @@ ACTION FeedbacksUpdateAction:
 	gConveyor.Feedbacks.AxisSpeed := Internal.Axis.Velocity;
 	gConveyor.Feedbacks.AxisPosition := Internal.Axis.Position;
 	
-	IF MachineState.ActualState = MOTION AND gConveyor.Commands.Automatic.SendTrigger THEN
-		IF gConveyor.Interface.Inputs.CapInStartPosition THEN
-			gConveyor.Feedbacks.NewCapTrigger := TRUE;
-		END_IF
-	ELSE
+	IF EDGEPOS(gConveyor.Interface.Inputs.CapInStartPosition) THEN
+		Internal.NewCapDetected := TRUE;
+	END_IF
+	IF MachineState.ActualState <> MOTION THEN
+		Internal.NewCapDetected := FALSE;
+	END_IF
+	
+	IF EDGENEG(gConveyor.Commands.Automatic.SendTrigger) THEN
+		Internal.NewCapDetected := FALSE;
 		gConveyor.Feedbacks.NewCapTrigger := FALSE;
+	ELSIF NOT gConveyor.Commands.Automatic.SendTrigger THEN
+		gConveyor.Feedbacks.NewCapTrigger := FALSE;
+	ELSE
+		gConveyor.Feedbacks.NewCapTrigger := Internal.NewCapDetected;
 	END_IF
 	
 END_ACTION

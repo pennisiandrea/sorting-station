@@ -27,7 +27,7 @@ TYPE
 		AxisPowered : BOOL;
 	END_STRUCT;
 	PuncherParametersType : 	STRUCT  (*Puncher Parameters type*)
-		Offset : REAL := 65;
+		Offset : REAL := 25;
 		Speed : REAL := 10000;
 		Acceleration : REAL := 20000;
 	END_STRUCT;

@@ -95,6 +95,7 @@ PROGRAM _CYCLIC
 		AUTO_WAITING_MODULES_READY:
 			MachineState.TimeoutTimer.PT := T#0S; // Timeout disabled in this state
 			IF MachineState.NewTriggerState THEN	
+				gConveyor.Commands.Automatic.SendTrigger := FALSE;
 				gMainMachine.Feedbacks.NewCapOnWork := FALSE;
 			END_IF
 			
@@ -128,7 +129,7 @@ PROGRAM _CYCLIC
 			IF NOT gPuncher.Feedbacks.WaitingCap THEN
 				gPuncher.Commands.Automatic.PunchCap := FALSE;
 			END_IF
-							
+						
 			IF gPuncher.Commands.Automatic.Start THEN
 					
 				IF NOT gPuncher.Commands.Automatic.PunchCap AND gPuncher.Feedbacks.PunchCapDone THEN
@@ -138,12 +139,22 @@ PROGRAM _CYCLIC
 			ELSE					
 				MachineState.NextState := AUTO_SORTING_CAP;
 			END_IF
+			
+			// Send again the command to check if there is a new cap (used to throw an alarm, see SetAlarmsAction)
+			IF NOT gConveyor.Feedbacks.NewCapTrigger THEN
+				gConveyor.Commands.Automatic.SendTrigger := TRUE; 
+			END_IF
 							
 		AUTO_SORTING_CAP:
 			MachineState.TimeoutTimer.PT := T#0S; // Timeout disabled in this state
 						
 			IF EDGEPOS(gColourSorter.Feedbacks.CapSorted) THEN
 				MachineState.NextState := AUTO_WAITING_MODULES_READY;
+			END_IF
+			
+			// Send again the command to check if there is a new cap (used to throw an alarm, see SetAlarmsAction)
+			IF NOT gConveyor.Feedbacks.NewCapTrigger THEN
+				gConveyor.Commands.Automatic.SendTrigger := TRUE; 
 			END_IF
 		
 		AUTO_WAITING_PICKUP_STATION_STOP:

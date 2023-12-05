@@ -27,5 +27,6 @@ TYPE
 		Lane1PositionOk : BOOL;
 		Lane2PositionOk : BOOL;
 		CapOnProcess : BOOL;
+		LaneFullTimeout : TON := (PT:=T#10S);
 	END_STRUCT;
 END_TYPE

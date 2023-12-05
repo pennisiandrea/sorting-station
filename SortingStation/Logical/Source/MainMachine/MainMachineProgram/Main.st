@@ -15,7 +15,8 @@ PROGRAM _CYCLIC
 	SetAlarmsAction;
 	
 	// Check stop reaction
-	IF MpAlarmXCheckReaction(gAlarmXCoreMpLink,'STOP') THEN
+	IF MpAlarmXCheckReaction(gAlarmXCoreMpLink,'STOP') 
+		OR (MpAlarmXCheckReaction(gAlarmXCoreMpLink,'STOP_ON_PHASE') AND NOT gMainMachine.Feedbacks.Started) THEN
 		MachineState.NextState := ERROR;
 	END_IF
 		
@@ -177,16 +178,22 @@ PROGRAM _CYCLIC
 				gMainMachine.Commands.Reset := FALSE;
 			END_IF
 			
-			IF gMainMachine.Commands.Automatic.Init THEN // User can reset alarms with init command	
-				gMainMachine.Commands.Reset := TRUE;
+			IF EDGE(gMainMachine.Commands.Automatic.Init) THEN
+				gMainMachine.Commands.Reset := gMainMachine.Commands.Automatic.Init; // User can reset alarms with init command	
 			END_IF
 			
+			gColourSorter.Commands.Reset := gMainMachine.Commands.Reset;	
+			gConveyor.Commands.Reset := gMainMachine.Commands.Reset;	
+			gPuncher.Commands.Reset := gMainMachine.Commands.Reset;
+			gPickingStation.Inputs.Reset := gMainMachine.Commands.Reset;
+			
 			IF gMainMachine.Commands.Reset THEN
-				ResetModules;
+				gAlarms.MpAlarmXListUIConnect.AcknowledgeAll := TRUE;
 			END_IF
 			
 			IF NOT MpAlarmXCheckReaction(gAlarmXCoreMpLink,'STOP') 
-				AND NOT MpAlarmXCheckReaction(gAlarmXCoreMpLink,'STOP_ON_PHASE')  THEN
+				AND NOT MpAlarmXCheckReaction(gAlarmXCoreMpLink,'STOP_ON_PHASE')
+				AND (NOT gPickingStation.Outputs.Error OR NOT gMainMachine.Commands.LinkMode) THEN
 				
 				gMainMachine.Commands.Reset := FALSE;
 				MachineState.NextState := WAITING_MODE_SELECTION;

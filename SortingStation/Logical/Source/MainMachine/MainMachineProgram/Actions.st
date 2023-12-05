@@ -52,6 +52,10 @@ ACTION FeedbacksUpdateAction:
 	IF NOT gMainMachine.Feedbacks.Started THEN
 		gMainMachine.Feedbacks.NewCapOnWork := FALSE;
 	END_IF
+	
+	IF NOT gMainMachine.Commands.Automatic.Init THEN
+		gMainMachine.Feedbacks.InitDone := FALSE;
+	END_IF
 END_ACTION
 
 ACTION MachineStateManagementAction: 
@@ -98,7 +102,7 @@ ACTION SetAlarmsAction:
 	END_IF
 	
 	//MainMachinePickingStationInError
-	IF EDGEPOS(gPickingStation.Outputs.Error) AND gMainMachine.Commands.LinkMode AND gAlarms.Feedbacks.Pendings = 0 THEN
+	IF gPickingStation.Outputs.Error AND gMainMachine.Commands.LinkMode AND NOT gMainMachine.Feedbacks.Error THEN
 		MpAlarmXSet(gAlarmXCoreMpLink,'MainMachinePickingStationInError');
 	END_IF
 	
@@ -184,15 +188,6 @@ ACTION ResetModulesManualCommands:
 	memset(ADR(gPuncher.Commands.Manual),0,SIZEOF(gPuncher.Commands.Manual));
 	memset(ADR(gConveyor.Commands.Manual),0,SIZEOF(gConveyor.Commands.Manual));
 		
-END_ACTION
-
-ACTION ResetModules:
-	
-	gColourSorter.Commands.Reset := TRUE;	
-	gConveyor.Commands.Reset := TRUE;	
-	gPuncher.Commands.Reset := TRUE;
-	gPickingStation.Inputs.Reset := TRUE;		
-	
 END_ACTION
 
 ACTION InitModules:

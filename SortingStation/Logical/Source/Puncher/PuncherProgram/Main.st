@@ -1,3 +1,13 @@
+//******************************************************************************************************
+// Program: 	PuncherProgram
+// Author: 		Andrea Pennisi
+// Rev.: 		1.0.0
+// Date:		5.12.2023
+//
+// Description:
+// This module is used to punch the the cap. 
+// An axis is controlled by mappMotion tools. The control is made by a cam linked to the Conveyor module axis.
+//******************************************************************************************************
 PROGRAM _INIT
         
     ResetOutputsAction;
@@ -109,6 +119,7 @@ PROGRAM _CYCLIC
 		INIT:
 			MachineState.TimeoutTimer.PT := T#15S;
 			Internal.Parameters.Position := 0;
+			Internal.Parameters.Velocity := gPuncher.Parameters.Speed;
 			Internal.Axis.MoveAbsolute := Internal.Axis.Active AND NOT Internal.Axis.Error;
 			IF Internal.Axis.MoveDone THEN
 				Internal.OffsetToDo := TRUE;
@@ -120,6 +131,7 @@ PROGRAM _CYCLIC
 			MachineState.TimeoutTimer.PT := T#0S; // Timeout disabled in this state			
 			IF MachineState.NewTriggerState THEN
 				ResetMotionCommands;
+				Internal.Parameters.Velocity := gPuncher.Parameters.Speed;
 			END_IF
 			
 			IF gPuncher.Commands.Automatic.Start THEN
@@ -143,7 +155,6 @@ PROGRAM _CYCLIC
 			IF gPuncher.Commands.Automatic.PunchCap THEN
 				gPuncher.Feedbacks.PunchCapDone := FALSE;
 				Internal.CamStartTrigger := TRUE;
-				Internal.Parameters.Velocity := gPuncher.Parameters.Speed;
 			END_IF
 			
 			IF Internal.Cam.InCam AND Internal.Cam.ActualStateIndex = 1 THEN // Syncronized motion
@@ -195,8 +206,5 @@ PROGRAM _CYCLIC
 END_PROGRAM
 
 PROGRAM _EXIT
-	Internal.Axis(Enable := FALSE);
-	Internal.Cam(Enable := FALSE);
-	Internal.Offset(Enable := FALSE);
     
 END_PROGRAM

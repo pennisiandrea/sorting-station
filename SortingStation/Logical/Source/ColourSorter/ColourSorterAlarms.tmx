@@ -45,5 +45,13 @@
         <seg>ColourSorter invalid combination of colors/lines</seg>
       </tuv>
     </tu>
+    <tu tuid="ColourSorterFullLanes">
+      <tuv xml:lang="it">
+        <seg>ColourSorter ha rilevato che le linee di uscita sono piene</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Exit lanes full</seg>
+      </tuv>
+    </tu>
   </body>
 </tmx>

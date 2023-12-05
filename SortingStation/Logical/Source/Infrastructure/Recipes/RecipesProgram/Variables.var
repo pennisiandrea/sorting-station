@@ -3,5 +3,4 @@ VAR
 	MpRecipeUIFB : MpRecipeUI;
 	InitDone : BOOL;
 	LastRecipeIndex : UINT;
-	UIConnect : REFERENCE TO MpRecipeUIConnectType;
 END_VAR

@@ -2,5 +2,4 @@ VAR
 	MpAlarmXCoreFB : MpAlarmXCore;
 	MpAlarmXHistoryFB : MpAlarmXHistory;
 	MpAlarmXListUIFB : MpAlarmXListUI;
-	MpAlarmXListUIConnect : MpAlarmXListUIConnectType;
 END_VAR

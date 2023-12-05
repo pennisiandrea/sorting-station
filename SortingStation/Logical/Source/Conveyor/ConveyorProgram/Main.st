@@ -1,3 +1,13 @@
+//******************************************************************************************************
+// Program: 	ConveyorProgram
+// Author: 		Andrea Pennisi
+// Rev.: 		1.0.0
+// Date:		5.12.2023
+//
+// Description:
+// This module is used to deliver the cap from the starting position of the conveyor to the exit.
+// An axis is controlled by mappMotion tools. The control is made in velocity.
+//******************************************************************************************************
 PROGRAM _INIT
         
     ResetOutputsAction;
@@ -163,6 +173,5 @@ PROGRAM _CYCLIC
 END_PROGRAM
 
 PROGRAM _EXIT
-    Internal.Axis(Enable := FALSE);
     
 END_PROGRAM

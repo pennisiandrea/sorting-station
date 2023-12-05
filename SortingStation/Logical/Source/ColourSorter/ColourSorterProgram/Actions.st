@@ -83,6 +83,16 @@ ACTION SetAlarmsAction:
 		MpAlarmXReset(gAlarmXCoreMpLink,'ColourSorterInvalidParametersCombination');
 	END_IF
 	
+	// ColourSorterFullLanes
+	Internal.LaneFullTimeout(IN:=gColourSorter.Interface.Inputs.CapAtExitPosition);
+	IF Internal.LaneFullTimeout.Q THEN
+		Internal.Error := TRUE;
+		MachineState.NextState := ERROR;
+		MpAlarmXSet(gAlarmXCoreMpLink,'ColourSorterFullLanes'); // Periodic alarm!
+	ELSE
+		MpAlarmXReset(gAlarmXCoreMpLink,'ColourSorterFullLanes');
+	END_IF
+	
 END_ACTION
 
 ACTION ResetAlarmsAction: 

@@ -6,7 +6,7 @@ PROGRAM _INIT
 	
 	MpAlarmXHistoryFB(MpLink := ADR(gAlarmXHistoryMpLink), Enable := TRUE, DeviceName := ADR('ALARMS'));
 	
-	MpAlarmXListUIFB(MpLink :=  ADR(gAlarmXCoreMpLink), Enable := TRUE, UIConnect := ADR(MpAlarmXListUIConnect));
+	MpAlarmXListUIFB(MpLink :=  ADR(gAlarmXCoreMpLink), Enable := TRUE, UIConnect := ADR(gAlarms.MpAlarmXListUIConnect));
 	
 END_PROGRAM
 
@@ -15,7 +15,6 @@ PROGRAM _CYCLIC
 			
 	MpAlarmXHistoryFB();
 	
-	MpAlarmXListUIConnect.AcknowledgeAll := gMainMachine.Commands.Reset;
 	MpAlarmXListUIFB();
 	
 	gAlarms.Feedbacks.Pendings := MpAlarmXCoreFB.PendingAlarms;

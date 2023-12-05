@@ -151,6 +151,7 @@
       <Parameter ID="ActivateSnmp" Value="2" />
     </Connector>
     <Parameter ID="ConfigurationID" Value="SortingStation_Configuration" />
+    <Parameter ID="VolatileGlobalPvSize" Value="125535" />
     <Parameter ID="TimerDeviceType" Value="EPLX2X" />
     <Parameter ID="TimerDevice" Value="X20CP1686X.IF3" />
     <Parameter ID="Cyclic1Tolerance" Value="0" />

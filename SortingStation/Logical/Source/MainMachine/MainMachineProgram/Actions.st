@@ -26,6 +26,18 @@ ACTION FeedbacksUpdateAction:
 	
 	gMainMachine.Feedbacks.AutomaticMode := NOT gMainMachine.Feedbacks.ManualMode AND NOT gMainMachine.Feedbacks.WaitModeSelection AND NOT gMainMachine.Feedbacks.Error;
 	
+	IF gMainMachine.Commands.LinkMode THEN
+		gMainMachine.Feedbacks.CapsOnConveyor := gConveyor.Feedbacks.CapsOnConveyor + gPickingStation.Outputs.CapsOnConveyor;
+	ELSE
+		gMainMachine.Feedbacks.CapsOnConveyor := gConveyor.Feedbacks.CapsOnConveyor;
+	END_IF
+		
+	IF gMainMachine.Commands.Automatic.Init AND gMainMachine.Feedbacks.CapsOnConveyor > 0 THEN
+		gMainMachine.Feedbacks.AskRemoveCaps := TRUE;
+	ELSIF gMainMachine.Commands.Automatic.CapsRemoved THEN
+		gMainMachine.Feedbacks.AskRemoveCaps := FALSE;
+	END_IF
+	
 	// Started
 	IF (MachineState.ActualState = AUTO_WAITING_MODULES_READY)
 		OR (MachineState.ActualState = AUTO_WAITING_CAP)
@@ -63,7 +75,9 @@ ACTION SetAlarmsAction:
         
 		// Throw here timeout alarms
 		CASE MachineState.ActualState OF
-		    AUTO_INITIALIZING: MpAlarmXSet(gAlarmXCoreMpLink,'MainMachineInitializationTimeout'); // Edge alarm!
+			AUTO_INITIALIZING: MpAlarmXSet(gAlarmXCoreMpLink,'MainMachineInitializationTimeout'); // Edge alarm!
+			AUTO_SORTING_CAP: MpAlarmXSet(gAlarmXCoreMpLink,'MainMachineCapMissing'); // Edge alarm!
+			AUTO_DELIVERING_AND_PUNCHING_CAP: MpAlarmXSet(gAlarmXCoreMpLink,'MainMachineCapMissing'); // Edge alarm!
 		END_CASE
 		
 		MachineState.NextState := ERROR;		
@@ -100,12 +114,6 @@ ACTION SetAlarmsAction:
 		MpAlarmXReset(gAlarmXCoreMpLink,'MainMachinePickingStationNotInLinkMode');
 	END_IF
 	
-	//MainMachineCapMissing
-	IF MachineState.ActualState = AUTO_DELIVERING_AND_PUNCHING_CAP OR  MachineState.ActualState = AUTO_SORTING_CAP THEN
-		IF gConveyor.Feedbacks.NewCapTrigger AND gConveyor.Commands.Automatic.SendTrigger THEN
-			MpAlarmXSet(gAlarmXCoreMpLink,'MainMachineCapMissing');
-		END_IF
-	END_IF
 END_ACTION
 
 ACTION PickingStationCommunication: 
@@ -156,7 +164,7 @@ ACTION StopModules:
 	gConveyor.Commands.Automatic.Start := FALSE;
 	gConveyor.Commands.Automatic.Init := FALSE;
 	gConveyor.Commands.Reset := FALSE;
-	gConveyor.Commands.Automatic.SendTrigger := FALSE;
+	gConveyor.Commands.Automatic.DecreaseCapCounter := FALSE;
 	
 	gPuncher.Commands.Manual.Enable := FALSE;
 	gPuncher.Commands.Automatic.Start := FALSE;
@@ -168,6 +176,14 @@ ACTION StopModules:
 	gPickingStation.Inputs.Init := FALSE;
 	gPickingStation.Inputs.Reset := FALSE;
 	
+END_ACTION
+
+ACTION ResetModulesManualCommands:
+	
+	memset(ADR(gColourSorter.Commands.Manual),0,SIZEOF(gColourSorter.Commands.Manual));
+	memset(ADR(gPuncher.Commands.Manual),0,SIZEOF(gPuncher.Commands.Manual));
+	memset(ADR(gConveyor.Commands.Manual),0,SIZEOF(gConveyor.Commands.Manual));
+		
 END_ACTION
 
 ACTION ResetModules:

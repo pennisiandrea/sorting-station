@@ -34,6 +34,8 @@ TYPE
 		StamperOffsetEnable : BOOL;
 		RecipesEnable : BOOL;
 		ShowLinkMsg : BOOL;
+		AskRemoveCaps : BOOL;
+		CapsRemoved : BOOL;
 	END_STRUCT;
 	HMIManualPageType : 	STRUCT  (*HMI Interface Output type*)
 		ManualButtonEnable : BOOL;
@@ -95,6 +97,7 @@ TYPE
 		StateWaitModeSelection : BOOL;
 		StateSortingCap : BOOL;
 		ResetAlarms : BOOL;
+		AlarmBlink : BOOL;
 	END_STRUCT;
 	HMIRecipeContentType : 	STRUCT  (*HMI Interface Output type*)
 		EnableRecipesManagement : BOOL;

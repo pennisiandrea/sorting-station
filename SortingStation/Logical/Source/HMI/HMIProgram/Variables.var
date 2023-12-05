@@ -1,0 +1,3 @@
+VAR
+	AlarmBlinkTimer : TON;
+END_VAR

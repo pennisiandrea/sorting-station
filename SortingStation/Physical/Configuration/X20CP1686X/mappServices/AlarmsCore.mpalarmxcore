@@ -63,61 +63,66 @@
         <Property ID="Message" Value="{$Source/Conveyor/Alarms/ConveyorInitFail}" />
       </Group>
       <Group ID="[9]">
+        <Property ID="Name" Value="ConveyorTooManyCaps" />
+        <Property ID="Message" Value="{$Source/Conveyor/Alarms/ConveyorTooManyCaps}" />
+        <Selector ID="Behavior" Value="PersistentAlarm" />
+      </Group>
+      <Group ID="[10]">
         <Property ID="Name" Value="PuncherAxisError" />
         <Property ID="Message" Value="{$Source/Puncher/Alarms/PuncherAxisError}" />
         <Selector ID="Behavior" Value="PersistentAlarm" />
       </Group>
-      <Group ID="[10]">
+      <Group ID="[11]">
         <Property ID="Name" Value="PuncherInvalidSensorsCombination" />
         <Property ID="Message" Value="{$Source/Puncher/Alarms/PuncherInvalidSensorsCombination}" />
         <Selector ID="Behavior" Value="PersistentAlarm" />
       </Group>
-      <Group ID="[11]">
+      <Group ID="[12]">
         <Property ID="Name" Value="PuncherTimeoutHoming" />
         <Property ID="Message" Value="{$Source/Puncher/Alarms/PuncherTimeoutHoming}" />
       </Group>
-      <Group ID="[12]">
+      <Group ID="[13]">
         <Property ID="Name" Value="PuncherTimeoutPowerOn" />
         <Property ID="Message" Value="{$Source/Puncher/Alarms/PuncherTimeoutPowerOn}" />
       </Group>
-      <Group ID="[13]">
+      <Group ID="[14]">
         <Property ID="Name" Value="PuncherTimeoutPunchBackward" />
         <Property ID="Message" Value="{$Source/Puncher/Alarms/PuncherTimeoutPunchBackward}" />
       </Group>
-      <Group ID="[14]">
+      <Group ID="[15]">
         <Property ID="Name" Value="PuncherTimeoutPunchForward" />
         <Property ID="Message" Value="{$Source/Puncher/Alarms/PuncherTimeoutPunchForward}" />
       </Group>
-      <Group ID="[15]">
+      <Group ID="[16]">
         <Property ID="Name" Value="PuncherAxisTimeout" />
         <Property ID="Message" Value="{$Source/Puncher/Alarms/PuncherAxisTimeout}" />
       </Group>
-      <Group ID="[16]">
+      <Group ID="[17]">
         <Property ID="Name" Value="MainMachineEmergencyCircuitInterrupted" />
         <Property ID="Message" Value="{$Source/MainMachine/Alarms/MainMachineEmergencyCircuitInterrupted}" />
         <Selector ID="Behavior" Value="PersistentAlarm" />
       </Group>
-      <Group ID="[17]">
+      <Group ID="[18]">
         <Property ID="Name" Value="MainMachineCommunicationLost" />
         <Property ID="Message" Value="{$Source/MainMachine/Alarms/MainMachineCommunicationLost}" />
         <Property ID="Severity" Value="2" />
         <Selector ID="Behavior" Value="PersistentAlarm" />
       </Group>
-      <Group ID="[18]">
+      <Group ID="[19]">
         <Property ID="Name" Value="MainMachineInitializationTimeout" />
         <Property ID="Message" Value="{$Source/MainMachine/Alarms/MainMachineInitializationTimeout}" />
       </Group>
-      <Group ID="[19]">
+      <Group ID="[20]">
         <Property ID="Name" Value="MainMachinePickingStationInError" />
         <Property ID="Message" Value="{$Source/MainMachine/Alarms/MainMachinePickingStationInError}" />
         <Property ID="Severity" Value="2" />
       </Group>
-      <Group ID="[20]">
+      <Group ID="[21]">
         <Property ID="Name" Value="MainMachinePickingStationNotInLinkMode" />
         <Property ID="Message" Value="{$Source/MainMachine/Alarms/MainMachinePickingStationNotInLinkMode}" />
         <Selector ID="Behavior" Value="PersistentAlarm" />
       </Group>
-      <Group ID="[21]">
+      <Group ID="[22]">
         <Property ID="Name" Value="MainMachineCapMissing" />
         <Property ID="Message" Value="{$Source/MainMachine/Alarms/MainMachineCapMissing}" />
       </Group>

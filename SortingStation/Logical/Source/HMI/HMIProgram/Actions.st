@@ -7,6 +7,7 @@ ACTION SetInitialValuesAction:
 	gHMI.ManualPage.ConveyorSpeed := gConveyor.Commands.Manual.Speed;
 	gHMI.ManualPage.PuncherPosition := gPuncher.Commands.Manual.Position;
 	gHMI.ManualPage.PuncherSpeed := gPuncher.Commands.Manual.Speed;
+	gHMI.ManualPage.PuncherAcceleration := gPuncher.Parameters.Acceleration;
 	
 END_ACTION
 	
@@ -27,17 +28,7 @@ ACTION AutomaticPageAction:
 	gHMI.AutomaticPage.ShowLinkMsg := gMainMachine.Commands.LinkMode AND NOT gPickingStation.Outputs.LinkActive;
 	
 	// Recipes
-	IF gMainMachine.Feedbacks.WaitModeSelection 
-		OR gMainMachine.Feedbacks.Error 
-		OR gMainMachine.Feedbacks.WaitingInit 
-		OR gMainMachine.Feedbacks.WaitingStart 
-		OR gMainMachine.Feedbacks.ManualMode THEN
-		
-		gHMI.AutomaticPage.RecipesEnable := TRUE; 
-	
-	ELSE
-		gHMI.AutomaticPage.RecipesEnable := FALSE; 
-	END_IF
+	gHMI.AutomaticPage.RecipesEnable := TRUE;
 	
 	// Init button
 	IF gMainMachine.Feedbacks.WaitingInit OR gMainMachine.Feedbacks.Error THEN
@@ -50,6 +41,13 @@ ACTION AutomaticPageAction:
 	gMainMachine.Commands.Automatic.Init := gHMI.AutomaticPage.InitButton;
 	IF EDGEPOS(gMainMachine.Commands.Automatic.Init) THEN
 		gHMI.AutomaticPage.AutoButton := TRUE;
+	END_IF
+	gHMI.AutomaticPage.AskRemoveCaps := gMainMachine.Feedbacks.AskRemoveCaps;
+	IF gHMI.AutomaticPage.CapsRemoved THEN
+		gMainMachine.Commands.Automatic.CapsRemoved := TRUE;
+	END_IF
+	IF NOT gMainMachine.Feedbacks.AskRemoveCaps THEN
+		gMainMachine.Commands.Automatic.CapsRemoved := FALSE;
 	END_IF
 	
 	// Auto button	
@@ -80,19 +78,14 @@ ACTION AutomaticPageAction:
 		gHMI.AutomaticPage.StartButton := FALSE;
 	END_IF
 	gMainMachine.Commands.Automatic.Start := gHMI.AutomaticPage.StartButton;
-
 	
 	// Conveyor speed slider button
-	IF NOT gMainMachine.Feedbacks.Started THEN
-		gHMI.AutomaticPage.ConveyorSpeedEnable := TRUE;
-		gConveyor.Parameters.TargetSpeed := gHMI.AutomaticPage.ConveyorSpeed;
-		gPickingStation.Inputs.ConveyorSpeed := gHMI.AutomaticPage.ConveyorSpeed; 
-	ELSE
-		gHMI.AutomaticPage.ConveyorSpeedEnable := FALSE;
-	END_IF
+	gHMI.AutomaticPage.ConveyorSpeedEnable := TRUE;
+	gConveyor.Parameters.TargetSpeed := gHMI.AutomaticPage.ConveyorSpeed;
+	gPickingStation.Inputs.ConveyorSpeed := gHMI.AutomaticPage.ConveyorSpeed; 
 	
 	// Ready to start
-	gHMI.AutomaticPage.ReadyToStartVisibility := gMainMachine.Feedbacks.WaitingStart AND gPickingStation.Outputs.WaitingStart;
+	gHMI.AutomaticPage.ReadyToStartVisibility := gMainMachine.Feedbacks.WaitingStart AND (gPickingStation.Outputs.WaitingStart OR NOT gMainMachine.Commands.LinkMode);
 	
 	// Clear statistics button	
 	IF NOT gMainMachine.Feedbacks.ClearStatsDone THEN
@@ -165,6 +158,15 @@ ACTION HeaderContentAction:
 		END_IF 
 	ELSE
 		gHMI.HeaderContent.ResetAlarms := FALSE;
+	END_IF
+	
+	AlarmBlinkTimer(IN:=NOT AlarmBlinkTimer.Q,PT:=T#500MS);
+	IF gMainMachine.Feedbacks.Error THEN
+		IF AlarmBlinkTimer.Q THEN
+			gHMI.HeaderContent.AlarmBlink := NOT gHMI.HeaderContent.AlarmBlink;
+		END_IF
+	ELSE
+		gHMI.HeaderContent.AlarmBlink := FALSE;
 	END_IF
 END_ACTION
 

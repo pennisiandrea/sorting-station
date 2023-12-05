@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EventBindingSet id="automatic_content_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Bindings>
-    <EventBinding id="automatic_content.ToggleButton5.Click">
-      <Source xsi:type="widgets.brease.ToggleButton.Event" contentRefId="automatic_content" widgetRefId="ToggleButton5" event="Click" />
-      <EventHandler>
+    <EventBinding id="EventBinding_2">
+      <Source xsi:type="opcUa.Event" refId="::AsGlobalPV:gHMI.AutomaticPage.AskRemoveCaps" event="ValueChanged" />
+      <EventHandler condition="newValue">
         <Action>
           <Target xsi:type="clientSystem.Action">
             <Method xsi:type="clientSystem.Action.OpenDialog" dialogId="init_dialog" />

@@ -24,6 +24,7 @@ TYPE
 		AxisSpeed : REAL;
 		AxisPosition : LREAL;
 		NewCapTrigger : BOOL;
+		CapsOnConveyor : USINT;
 	END_STRUCT;
 	ConveyorParametersType : 	STRUCT  (*Conveyor Parameters type*)
 		TargetSpeed : REAL := 50;
@@ -42,7 +43,7 @@ TYPE
 	ConveyorAutomaticCommadsType : 	STRUCT  (*Conveyor Commands type*)
 		Start : BOOL;
 		Init : BOOL;
-		SendTrigger : BOOL;
+		DecreaseCapCounter : BOOL;
 	END_STRUCT;
 	ConveyorManualCommadsType : 	STRUCT  (*Conveyor Commands type*)
 		Enable : BOOL;

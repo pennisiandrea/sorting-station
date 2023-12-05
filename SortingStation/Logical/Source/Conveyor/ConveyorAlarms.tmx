@@ -37,5 +37,13 @@
         <seg>Conveyor cannot be initialized</seg>
       </tuv>
     </tu>
+    <tu tuid="ConveyorTooManyCaps">
+      <tuv xml:lang="it">
+        <seg>Rilevate troppe caps sul conveyor</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Too many caps on the conveyor</seg>
+      </tuv>
+    </tu>
   </body>
 </tmx>

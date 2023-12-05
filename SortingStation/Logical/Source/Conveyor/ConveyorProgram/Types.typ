@@ -22,6 +22,5 @@ TYPE
 		Axis : MpAxisBasic;
 		Parameters : MpAxisBasicParType;
 		Error : BOOL;
-		NewCapDetected : BOOL;
 	END_STRUCT;
 END_TYPE

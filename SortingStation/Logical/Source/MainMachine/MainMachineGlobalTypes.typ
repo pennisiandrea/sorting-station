@@ -32,6 +32,8 @@ TYPE
 		SortingCap : BOOL;
 		DeliveringCap : BOOL;
 		WaitingCap : BOOL;
+		AskRemoveCaps : BOOL;
+		CapsOnConveyor : USINT;
 	END_STRUCT;
 	MainMachineParametersType : 	STRUCT  (*MainMachine Parameters type*)
 		PuncherEnable : BOOL := TRUE;
@@ -46,6 +48,7 @@ TYPE
 		Enable : BOOL;
 		Init : BOOL;
 		Start : BOOL;
+		CapsRemoved : BOOL;
 	END_STRUCT;
 	MainMachineManualCommadsType : 	STRUCT  (*MainMachine Commands type*)
 		Enable : BOOL;

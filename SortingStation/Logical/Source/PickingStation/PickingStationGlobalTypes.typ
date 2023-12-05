@@ -29,5 +29,6 @@ TYPE
 		NewCapArriving : BOOL;
 		ActStampIncluded : BOOL;
 		ActStampOffset : REAL;
+		CapsOnConveyor : USINT;
 	END_STRUCT;
 END_TYPE

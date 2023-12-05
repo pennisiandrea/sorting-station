@@ -27,5 +27,6 @@ TYPE
 		PickingStationCommunicationOk : BOOL;
 		OnPhaseStopRequest : BOOL;
 		Error : BOOL;
+		LastCapCounter : USINT;
 	END_STRUCT;
 END_TYPE

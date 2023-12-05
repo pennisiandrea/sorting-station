@@ -3,7 +3,7 @@ ACTION FeedbacksUpdateAction:
     gConveyor.Feedbacks.Enabled := TRUE;
     gConveyor.Feedbacks.WaitingStart := MachineState.ActualState = WAITING_START; 
     gConveyor.Feedbacks.Error := MachineState.ActualState = ERROR;
-	gConveyor.Feedbacks.WaitingCap := MachineState.ActualState = MOTION AND NOT gConveyor.Feedbacks.NewCapTrigger;
+	gConveyor.Feedbacks.WaitingCap := MachineState.ActualState = MOTION AND (gConveyor.Feedbacks.CapsOnConveyor = 0);
 	gConveyor.Feedbacks.AxisHomed := Internal.Axis.IsHomed;	
 	gConveyor.Feedbacks.AxisPowered := Internal.Axis.PowerOn;	
 	gConveyor.Feedbacks.InitPosition := ABS(Internal.Axis.Position - Internal.Parameters.Position)<0.1;
@@ -11,21 +11,22 @@ ACTION FeedbacksUpdateAction:
 	gConveyor.Feedbacks.AxisSpeed := Internal.Axis.Velocity;
 	gConveyor.Feedbacks.AxisPosition := Internal.Axis.Position;
 	
-	IF EDGEPOS(gConveyor.Interface.Inputs.CapInStartPosition) THEN
-		Internal.NewCapDetected := TRUE;
-	END_IF
-	IF MachineState.ActualState <> MOTION THEN
-		Internal.NewCapDetected := FALSE;
+	IF EDGEPOS(gConveyor.Interface.Inputs.CapInStartPosition) AND gConveyor.Commands.Automatic.Start THEN
+		gConveyor.Feedbacks.CapsOnConveyor := gConveyor.Feedbacks.CapsOnConveyor + 1;
+	
+	ELSIF gConveyor.Interface.Inputs.CapInStartPosition AND gConveyor.Commands.Automatic.Start AND gConveyor.Feedbacks.CapsOnConveyor = 0 THEN
+		gConveyor.Feedbacks.CapsOnConveyor := gConveyor.Feedbacks.CapsOnConveyor + 1;
+		
 	END_IF
 	
-	IF EDGENEG(gConveyor.Commands.Automatic.SendTrigger) THEN
-		Internal.NewCapDetected := FALSE;
-		gConveyor.Feedbacks.NewCapTrigger := FALSE;
-	ELSIF NOT gConveyor.Commands.Automatic.SendTrigger THEN
-		gConveyor.Feedbacks.NewCapTrigger := FALSE;
-	ELSE
-		gConveyor.Feedbacks.NewCapTrigger := Internal.NewCapDetected;
+	IF EDGEPOS(gConveyor.Commands.Automatic.DecreaseCapCounter) THEN
+		IF gConveyor.Feedbacks.CapsOnConveyor > 1 THEN
+			gConveyor.Feedbacks.CapsOnConveyor := gConveyor.Feedbacks.CapsOnConveyor - 1;
+		ELSE
+			gConveyor.Feedbacks.CapsOnConveyor := 0;
+		END_IF
 	END_IF
+	
 	
 END_ACTION
 
@@ -40,6 +41,7 @@ ACTION ResetMotionCommands:
 	Internal.Axis.Home := FALSE;
 	Internal.Axis.MoveVelocity := FALSE;
 	Internal.Axis.MoveAbsolute := FALSE;
+	Internal.Axis.Update := FALSE;
 END_ACTION
 
 ACTION ResetFeedbacksAction: 
@@ -80,6 +82,7 @@ ACTION SetAlarmsAction:
 		MachineState.NextState := ERROR;		
 	END_IF            
 
+	// ConveyorAxisError
 	IF Internal.Axis.Error THEN
 		MpAlarmXSet(gAlarmXCoreMpLink,'ConveyorAxisError');
 		Internal.Error := TRUE;
@@ -88,6 +91,17 @@ ACTION SetAlarmsAction:
 		MpAlarmXReset(gAlarmXCoreMpLink,'ConveyorAxisError');
 	END_IF
 	
+	// ConveyorTooManyCaps
+	IF gConveyor.Commands.Reset THEN
+		gConveyor.Feedbacks.CapsOnConveyor := 0;
+	END_IF
+	IF gConveyor.Feedbacks.CapsOnConveyor > 1 THEN
+		MpAlarmXSet(gAlarmXCoreMpLink,'ConveyorTooManyCaps');
+		Internal.Error := TRUE;
+		MachineState.NextState := ERROR;
+	ELSE
+		MpAlarmXReset(gAlarmXCoreMpLink,'ConveyorTooManyCaps');
+	END_IF
 END_ACTION
 
 ACTION ResetAlarmsAction:
